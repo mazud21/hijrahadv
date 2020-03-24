@@ -15,29 +15,26 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <!-- End Toggle Nav Link For Mobiles -->
-                <a class="navbar-brand" href="<?= base_url() ?>">Hijrah Adv</a>
+                <a class="navbar-brand" href="<?= base_url() ?>">Hijrah Adventure</a>
             </div>
             <div class="navbar-collapse collapse">
                 
                 <!-- Start Navigation List -->
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="<?= base_url(); ?>">Home</a>
                     </li>
                     <li>
-                        <a href="about.html">About Us</a>
+                        <a href="<?= base_url(); ?>about">About Us</a>
                     </li>
                     <li>
-                        <a href="service.html">Service</a>
+                        <a href="<?= base_url(); ?>service">Service</a>
                     </li>
                     <li>
-                        <a href="portfolio.html">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="blog.html">Blog</a>
+                        <a href="<?= base_url(); ?>blog">Blog</a>
                         <ul class="dropdown">
                             <li>
-                                <a href="blog-item.html">Item Page</a>
+                                <a href="<?= base_url(); ?>blog-item">Item Page</a>
                             </li>
                         </ul>
                     </li>
