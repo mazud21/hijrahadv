@@ -35,7 +35,7 @@
                     <!-- Start Blog post -->
                     <div class="single-blog-post">
                         <div class="post-img">
-                            <img src="asset/images/blog/blog-02.jpg" class="img-responsive" alt="Blog image">
+                            <img src="<?= base_url() ?>assets/images/blog/blog-02.jpg" class="img-responsive" alt="Blog image">
                         </div>
                         <h1 class="post-title"><a href="#">Nulla facilisi integer lacinia sollicitudin massa</a></h1>
                         
@@ -83,7 +83,7 @@
                         <div class="media">
                             <div class="media-left">
                                 <a href="#">
-                                    <img class="media-object" src="asset/images/user.png" alt="...">
+                                    <img class="media-object" src="<?= base_url() ?>assets/images/user.png" alt="...">
                                 </a>
                             </div>
                             <div class="media-body">
@@ -100,7 +100,7 @@
                         <ol class="comments-list">
                             <li>
                                 <div class="comment-box clearfix">
-                                    <div class="avatar"><img alt="" src="asset/images/user-2.png"></div>
+                                    <div class="avatar"><img alt="" src="<?= base_url() ?>assets/images/user-2.png"></div>
                                     <div class="comment-content">
                                         <div class="comment-meta">
                                             <span class="comment-by">fghfghjfghj</span>
@@ -114,7 +114,7 @@
                                 <ul>
                                     <li>
                                         <div class="comment-box clearfix">
-                                            <div class="avatar"><img alt="" src="asset/images/user-2.png"></div>
+                                            <div class="avatar"><img alt="" src="<?= base_url() ?>assets/images/user-2.png"></div>
                                             <div class="comment-content">
                                                 <div class="comment-meta">
                                                     <span class="comment-by">sdfaasdfb</span>
@@ -130,7 +130,7 @@
   
                             <li>
                                 <div class="comment-box clearfix">
-                                    <div class="avatar"><img alt="" src="asset/images/user-2.png"></div>
+                                    <div class="avatar"><img alt="" src="<?= base_url() ?>assets/images/user-2.png"></div>
                                     <div class="comment-content">
                                         <div class="comment-meta">
                                             <span class="comment-by">sa</span>
@@ -144,7 +144,7 @@
                                 <ul>
                                     <li>
                                         <div class="comment-box clearfix">
-                                            <div class="avatar"><img alt="" src="asset/images/user-2.png"></div>
+                                            <div class="avatar"><img alt="" src="<?= base_url() ?>assets/images/user-2.png"></div>
                                             <div class="comment-content">
                                                 <div class="comment-meta">
                                                     <span class="comment-by">xc zc</span>
@@ -217,11 +217,6 @@
         
         <!-- Sulfur JS File -->
         <?php $this->load->view("client/templates/js.php") ?>
-        
-        <script src="asset/js/map.js"></script>
-        <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-        <script src="asset/js/script.js"></script>
-        
     
     </body>
 </html>

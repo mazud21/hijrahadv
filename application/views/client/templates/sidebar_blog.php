@@ -13,43 +13,43 @@
         
         <ul class="flickr-list">
             <li>
-                <a href="asset/images/flickr/8.jpg" data-lightbox="picture-1">
-                    <img src="asset/images/flickr/8.jpg" alt="" class="img-responsive">
+                <a href="<?= base_url() ?>assets/images/flickr/8.jpg" data-lightbox="picture-1">
+                    <img src="<?= base_url() ?>assets/images/flickr/8.jpg" alt="" class="img-responsive">
                 </a>
             </li>
             <li>
-                <a href="asset/images/flickr/7.jpg" data-lightbox="picture-2">
-                    <img src="asset/images/flickr/7.jpg" alt="" class="img-responsive">
+                <a href="<?= base_url() ?>assets/images/flickr/7.jpg" data-lightbox="picture-2">
+                    <img src="<?= base_url() ?>assets/images/flickr/7.jpg" alt="" class="img-responsive">
                 </a>
             </li>
             <li>
-                <a href="asset/images/flickr/6.jpg" data-lightbox="picture-3">
-                    <img src="asset/images/flickr/6.jpg" alt="" class="img-responsive">
+                <a href="<?= base_url() ?>assets/images/flickr/6.jpg" data-lightbox="picture-3">
+                    <img src="<?= base_url() ?>assets/images/flickr/6.jpg" alt="" class="img-responsive">
                 </a>
             </li>
             <li>
-                <a href="asset/images/flickr/5.jpg" data-lightbox="picture-4">
-                    <img src="asset/images/flickr/5.jpg" alt="" class="img-responsive">
+                <a href="<?= base_url() ?>assets/images/flickr/5.jpg" data-lightbox="picture-4">
+                    <img src="as<?= base_url() ?>assets/images/flickr/5.jpg" alt="" class="img-responsive">
                 </a>
             </li>
             <li>
-                <a href="asset/images/flickr/4.jpg" data-lightbox="picture-5">
-                    <img src="asset/images/flickr/4.jpg" alt="" class="img-responsive">
+                <a href="<?= base_url() ?>assets/images/flickr/4.jpg" data-lightbox="picture-5">
+                    <img src="<?= base_url() ?>assets/images/flickr/4.jpg" alt="" class="img-responsive">
                 </a>
             </li>
             <li>
-                <a href="asset/images/flickr/3.jpg" data-lightbox="picture-6">
-                    <img src="asset/images/flickr/3.jpg" alt="" class="img-responsive">
+                <a href="<?= base_url() ?>assets/images/flickr/3.jpg" data-lightbox="picture-6">
+                    <img src="<?= base_url() ?>assets/images/flickr/3.jpg" alt="" class="img-responsive">
                 </a>
             </li>
             <li>
-                <a href="asset/images/flickr/2.jpg" data-lightbox="picture-7">
-                    <img src="asset/images/flickr/2.jpg" alt="" class="img-responsive">
+                <a href="<?= base_url() ?>assets/images/flickr/2.jpg" data-lightbox="picture-7">
+                    <img src="as<?= base_url() ?>assets/images/flickr/2.jpg" alt="" class="img-responsive">
                 </a>
             </li>
             <li>
-                <a href="asset/images/flickr/1.jpg" data-lightbox="picture-8">
-                    <img src="asset/images/flickr/1.jpg" alt="" class="img-responsive">
+                <a href="<?= base_url() ?>assets/images/flickr/1.jpg" data-lightbox="picture-8">
+                    <img src="<?= base_url() ?>assets/images/flickr/1.jpg" alt="" class="img-responsive">
                 </a>
             </li>
         </ul>
@@ -69,7 +69,7 @@
         <div class="media">
             <div class="media-left">
                 <a href="#">
-                    <img class="media-object" src="asset/images/recent-post/post-02.jpg" alt="...">
+                    <img class="media-object" src="<?= base_url() ?>assets/images/recent-post/post-02.jpg" alt="...">
                 </a>
             </div>
             <div class="media-body">
@@ -84,7 +84,7 @@
         <div class="media">
             <div class="media-left">
                 <a href="#">
-                    <img class="media-object" src="asset/images/recent-post/post-03.jpg" alt="...">
+                    <img class="media-object" src="<?= base_url() ?>assets/images/recent-post/post-03.jpg" alt="...">
                 </a>
             </div>
             <div class="media-body">
@@ -99,7 +99,7 @@
         <div class="media">
             <div class="media-left">
                 <a href="#">
-                    <img class="media-object" src="asset/images/recent-post/post-04.jpg" alt="...">
+                    <img class="media-object" src="<?= base_url() ?>assets/images/recent-post/post-04.jpg" alt="...">
                 </a>
             </div>
             <div class="media-body">

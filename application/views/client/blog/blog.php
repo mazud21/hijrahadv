@@ -35,7 +35,7 @@
                     <!-- Start Blog post -->
                     <div class="blog-post">
                         <div class="post-img">
-                            <img src="asset/images/blog/blog-01.jpg" class="img-responsive" alt="Blog image">
+                            <img src="<?= base_url() ?>assets/images/blog/blog-01.jpg" class="img-responsive" alt="Blog image">
                         </div>
                         <h1 class="post-title"><a href="#">Nulla facilisi integer lacinia sollicitudin massa</a></h1>
                         
@@ -55,7 +55,7 @@
                     <!-- Start Blog post -->
                     <div class="blog-post">
                         <div class="post-img">
-                            <img src="asset/images/blog/blog-02.jpg" class="img-responsive" alt="Blog image">
+                            <img src="<?= base_url() ?>assets/images/blog/blog-02.jpg" class="img-responsive" alt="Blog image">
                         </div>
                         <h1 class="post-title"><a href="#">Quisque cursus metus vitae pharetra auctor sem massa</a></h1>
                         
@@ -106,7 +106,7 @@
         <!-- End Copyright Section -->
         
         <!-- Sulfur JS File -->
-        <?php $this->load->view("client/templates/footer.php") ?>
+        <?php $this->load->view("client/templates/js.php") ?>
  
     </body>
 </html>
