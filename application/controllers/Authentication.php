@@ -4,13 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Authentication extends CI_Controller {
     public function __construct(){
         parent::__construct();
-        $this->load->model('Admin_model');
+        $this->load->model('server/Admin_model');
     }
 
     public function index(){
         $data['judul'] = 'Login Admin';
         if($this->session->userdata('authenticated')) 
-        redirect('home'); 
+        redirect('server/home'); 
         $this->load->view('server/authentication/login', $data); 
     }
     
@@ -20,7 +20,7 @@ class Authentication extends CI_Controller {
         $admin = $this->Admin_model->get($id); 
         if(empty($admin)){ 
         $this->session->set_flashdata('message', 'id tidak ditemukan'); 
-        redirect('authentication'); 
+        redirect('server/authentication'); 
         } else {
                 if($password == $admin->password){
                     $session = array(
@@ -29,10 +29,10 @@ class Authentication extends CI_Controller {
                     'nama'=>$admin->nama // Buat session authenticated
                     );
                     $this->session->set_userdata($session); 
-                    redirect('home'); 
+                    redirect('server/home'); 
                 } else {
                         $this->session->set_flashdata('message', 'Password salah'); 
-                        redirect('authentication'); 
+                        redirect('server/authentication'); 
                 }
             }
     }

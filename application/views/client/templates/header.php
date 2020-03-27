@@ -25,20 +25,20 @@
                         <a href="<?= base_url(); ?>">Home</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>about">About Us</a>
+                        <a href="<?= base_url(); ?>client/about">About Us</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>service">Service</a>
+                        <a href="<?= base_url(); ?>client/service">Service</a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>blog">Blog</a>
+                        <a href="<?= base_url(); ?>client/blog">Blog</a>
                         <ul class="dropdown">
                             <li>
                                 <a href="<?= base_url(); ?>blog-item">Item Page</a>
                             </li>
                         </ul>
                     </li>
-                    <li><a href="<?= base_url(); ?>contact">Contact</a>
+                    <li><a href="<?= base_url(); ?>client/contact">Contact</a>
                     </li>
                 </ul>
                 <!-- End Navigation List -->

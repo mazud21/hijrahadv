@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Page Title - SB Admin</title>
-        <link href="<?= base_url(); ?>assets/css/styles_login.css" rel="stylesheet" />
+        <link href="<?= base_url(); ?>assets_server/css/styles_login.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="bg-primary">
