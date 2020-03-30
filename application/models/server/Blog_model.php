@@ -7,49 +7,43 @@ class Blog_model extends CI_model {
     }
 
     public function upload(){
-        $config['upload_path']='./images/';
-        $config['allowed_types']='jpg|png|jpeg';
-        $config['max_size']='2048';
-        $config['remove_space']=TRUE;
-        $config['overwrite']=TRUE;
-        
-        $this->load->library('upload',$config);
+        $config['upload_path'] = './images/';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_size']  = '2048';
+        $config['remove_space'] = TRUE;
+        $config['overwrite'] = TRUE;
+    
+        $this->load->library('upload', $config); 
 
-        if ($this->upload->do_upload('gambar')) {
-            $return = array(
-                'result'=>'success', 
-                'file'=> $this->upload->data(), 
-                'error'=>'');
-                return $return;
-            
-        } else {
-            $return = array(
-                'result'=>'failed',
-                'file'=>'',
-                'error'=> $this->upload->display_errors());
-                return $return;
+        if($this->upload->do_upload('gambar')){ 
+            $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
+            return $return;
+        }else{
+            $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
+            return $return;
         }
     }
 
-    public function tambahDataBlog(/*$upload*/)
+
+    public function tambahDataBlog($upload)
     {
         $data = [
-            "judul" => $this->input->post('judul', true),
-            "isi" => $this->input->post('isi', true),
-            //"gambar" => $upload['file']['file_name'],
-            "tanggal_create" => $this->input->post('tanggal_create', true)
+            'judul' => $this->input->post('judul', true),
+            'isi' => $this->input->post('isi', true),
+            'gambar' => $upload['file']['file_name'],
+            'tanggal_create' => $this->input->post('tanggal_create', true)
         ];
 
         $this->db->insert('blog', $data);
     }
 
-    public function ubahDataPelanggan(/*$upload*/)
+    public function ubahDataBlog()
     {
             $data = [
                 "id_blog" => $this->input->post('id_blog', true),
                 "judul" => $this->input->post('judul', true),
                 "isi" => $this->input->post('isi', true),
-                //"gambar" => $upload['file']['file_name'],
+                "gambar" => $upload['file']['file_name'],
                 "tanggal_create" => $this->input->post('tanggal_create', true),
                 "tanggal_update" => $this->input->post('tanggal_update', true)
             ];
