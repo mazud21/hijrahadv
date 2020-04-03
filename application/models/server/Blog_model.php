@@ -16,10 +16,14 @@ class Blog_model extends CI_model {
         $this->load->library('upload', $config); 
 
         if($this->upload->do_upload('gambar')){ 
-            $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
+            $return = array('result' => 'success', 
+            'file' => $this->upload->data(), 
+            'error' => '');
             return $return;
         }else{
-            $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
+            $return = array('result' => 'failed', 
+            'file' => '', 'error' => 
+            $this->upload->display_errors());
             return $return;
         }
     }
@@ -27,12 +31,12 @@ class Blog_model extends CI_model {
 
     public function tambahDataBlog($upload)
     {
-        $data = [
+        $data = array(
             'judul' => $this->input->post('judul', true),
             'isi' => $this->input->post('isi', true),
             'gambar' => $upload['file']['file_name'],
             'tanggal_create' => $this->input->post('tanggal_create', true)
-        ];
+        );
 
         $this->db->insert('blog', $data);
     }
