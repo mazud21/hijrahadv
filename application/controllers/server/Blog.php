@@ -1,9 +1,8 @@
 <?php
 
-class Blog extends CI_Controller
-{
-    public function __construct()
-    {
+class Blog extends CI_Controller{
+
+    public function __construct(){
         parent::__construct();
         $this->load->model('server/Blog_model');
         $this->load->library('form_validation');
@@ -13,8 +12,7 @@ class Blog extends CI_Controller
             redirect('server/authentication');
     }
 
-    public function index()
-    {
+    public function index(){
         $data['judul'] = 'Daftar Blog';
         $data['blog'] = $this->Blog_model->getAllBlog();
         
@@ -28,7 +26,7 @@ class Blog extends CI_Controller
         
         $this->form_validation->set_rules('judul', 'Judul Blog', 'required');
         $this->form_validation->set_rules('isi', 'Konten', 'required');
-        $this->form_validation->set_rules('gambar', 'Gambar', 'required');
+        //$this->form_validation->set_rules('gambar', 'Gambar', 'required');
         $this->form_validation->set_rules('tanggal_create', 'Tanggal', 'required');
 
         if ($this->form_validation->run() == false) {
@@ -53,86 +51,85 @@ class Blog extends CI_Controller
     }
 
     public function edit($id_blog){
-    $kondisi = array('id_blog' => $id_blog );
+        $kondisi = array('id_blog' => $id_blog );
 
-    $data['blg'] = $this->Blog_model->get_by_id($kondisi);
-    
-    $this->form_validation->set_rules('judul', 'Judul Blog', 'required');
-    $this->form_validation->set_rules('isi', 'Konten', 'required');
-    //$this->form_validation->set_rules('gambar', 'Gambar', 'required');
-    $this->form_validation->set_rules('tanggal_create', 'Tanggal', 'required');
-    $this->form_validation->set_rules('tanggal_update', 'Tanggal', 'required');
+        $data['blg'] = $this->Blog_model->get_by_id($kondisi);
+        
+        $this->form_validation->set_rules('judul', 'Judul Blog', 'required');
+        $this->form_validation->set_rules('isi', 'Konten', 'required');
+        //$this->form_validation->set_rules('gambar', 'Gambar', 'required');
+        $this->form_validation->set_rules('tanggal_create', 'Tanggal', 'required');
+        $this->form_validation->set_rules('tanggal_update', 'Tanggal', 'required');
 
-    if ($this->form_validation->run() == false) {
-        $this->load->view('server/templates/header');
-        $this->load->view('server/blog/ubah',$data);
-        $this->load->view('server/templates/footer');
-    }
+        if ($this->form_validation->run() == false) {
+            $this->load->view('server/templates/header');
+            $this->load->view('server/blog/ubah',$data);
+            $this->load->view('server/templates/footer');
+        }
     
     }
 
     public function updatedata(){
 
-    $this->load->library('upload'); 
+        $this->load->library('upload'); 
 
-    $id_blog   = $this->input->post('id_blog');
-    $judul = $this->input->post('judul');
-    $isi = $this->input->post('isi');
-    $tanggal_create = $this->input->post('tanggal_create');
-    $tanggal_update = $this->input->post('tanggal_update');
+        $id_blog   = $this->input->post('id_blog');
+        $judul = $this->input->post('judul');
+        $isi = $this->input->post('isi');
+        $tanggal_create = $this->input->post('tanggal_create');
+        $tanggal_update = $this->input->post('tanggal_update');
 
-    $path = './images/';
+        $path = './images/';
 
-    $kondisi = array('id_blog' => $id_blog );
+        $kondisi = array('id_blog' => $id_blog );
 
-    $config['upload_path'] = './images/';
-    $config['allowed_types'] = 'jpg|png|jpeg|gif';
-    $config['max_size'] = '2048';
-    $config['file_name'] = $_FILES['img_new']['name'];
+        $config['upload_path'] = './images/';
+        $config['allowed_types'] = 'jpg|png|jpeg|gif';
+        $config['max_size'] = '2048';
+        $config['file_name'] = $_FILES['img_new']['name'];
 
-    $this->upload->initialize($config);
+        $this->upload->initialize($config);
 
-	if (!empty($_FILES['img_new']['name'])) {
-        if ( $this->upload->do_upload('img_new') ) {
-        $gambar = $this->upload->data();
-        $data = array(
-            'judul'             => $judul,
-            'isi'               => $isi,
-            'gambar'            => $gambar['file_name'],
-            'tanggal_create'    => $tanggal_create,
-            'tanggal_update'    => $tanggal_update,
-            );
-            // replace image
-            @unlink($path.$this->input->post('img_old'));
+        if (!empty($_FILES['img_new']['name'])) {
+            if ( $this->upload->do_upload('img_new') ) {
+                $gambar = $this->upload->data();
+                $data = array(
+                        'judul'         => $judul,
+                        'isi'           => $isi,
+                        'gambar'        => $gambar['file_name'],
+                        'tanggal_create'=> $tanggal_create,
+                        'tanggal_update'=> $tanggal_update,
+                        );
+                // replace image
+                @unlink($path.$this->input->post('img_old'));
 
-			$this->Blog_model->update($data,$kondisi);
-            redirect('server/blog');
+                $this->Blog_model->update($data,$kondisi);
+                redirect('server/blog');
+                }else {
+                die("gagal update");
+                redirect('server/blog');
+                }
             }else {
-            die("gagal update");
-            }
-        }else {
-        //no image update
-        $data = array(
-            'judul'             => $judul,
-            'isi'               => $isi,
-            //'gambar'            => $gambar['file_name'],
-            'tanggal_create'    => $tanggal_create,
-            'tanggal_update'    => $tanggal_update,
-        );
-        $this->Blog_model->update($data,$kondisi);
-        redirect('server/blog');
+            //no image update
+            $data = array(
+                'judul'             => $judul,
+                'isi'               => $isi,
+                //'gambar'            => $gambar['file_name'],
+                'tanggal_create'    => $tanggal_create,
+                'tanggal_update'    => $tanggal_update,
+            );
+            $this->Blog_model->update($data,$kondisi);
+            redirect('server/blog');
         }
     }
 
-    public function hapus($id_blog)
-    {
+    public function hapus($id_blog){
         $this->Blog_model->hapusDataBlog($id_blog);
         $this->session->set_flashdata('flash', 'Dihapus');
         redirect('server/blog');
     }
 
-    public function detail($id_blog)
-    {
+    public function detail($id_blog){
         $data['judul'] = 'Detail Data Blog';
         $data['blog'] = $this->Blog_model->getBlogById($id_blog);
         $this->load->view('server/templates/header', $data);

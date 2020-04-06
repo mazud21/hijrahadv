@@ -1,8 +1,7 @@
 <?php 
 
 class Blog_model extends CI_model {
-    public function getAllBlog()
-    {
+    public function getAllBlog(){
         return $this->db->get('blog')->result_array();
     }
 
@@ -12,24 +11,39 @@ class Blog_model extends CI_model {
         $config['max_size']  = '2048';
         $config['remove_space'] = TRUE;
         $config['overwrite'] = TRUE;
+        $config['file_name'] = $_FILES['gambar']['name'];
     
         $this->load->library('upload', $config); 
 
-        if($this->upload->do_upload('gambar')){ 
-            $return = array('result' => 'success', 
-            'file' => $this->upload->data(), 
-            'error' => '');
-            return $return;
-        }else{
-            $return = array('result' => 'failed', 
-            'file' => '', 'error' => 
-            $this->upload->display_errors());
-            return $return;
+        if (!empty($_FILES['gambar']['name'])) {
+            # code...
+            if($this->upload->do_upload('gambar')){ 
+                $return = array('result' => 'success', 
+                'file' => $this->upload->data(), 
+                'error' => '');
+                return $return;
+            }else{
+                $return = array('result' => 'failed', 
+                'file' => '', 'error' => 
+                $this->upload->display_errors());
+                return $return;
+            }
+        } else {
+            $data = array(
+                'judul' => $this->input->post('judul', true),
+                'isi' => $this->input->post('isi', true),
+                //'gambar' => $upload['file']['file_name'],
+                'tanggal_create' => $this->input->post('tanggal_create', true)
+            );
+    
+            $this->db->insert('blog', $data);
+            
+            redirect('server/blog');
         }
+
     }
 
-    public function tambahDataBlog($upload)
-    {
+    public function tambahDataBlog($upload){
         $data = array(
             'judul' => $this->input->post('judul', true),
             'isi' => $this->input->post('isi', true),
@@ -52,19 +66,16 @@ class Blog_model extends CI_model {
     return TRUE;
     }
 
-    public function hapusDataBlog($id_blog)
-    {
+    public function hapusDataBlog($id_blog){
         // $this->db->where('id', $id);
         $this->db->delete('blog', ['id_blog' => $id_blog]);
     }
 
-    public function getBlogById($id_blog)
-    {
+    public function getBlogById($id_blog){
         return $this->db->get_where('blog', ['id_blog' => $id_blog])->row_array();
     }
 
-    public function cariDataBlog()
-    {
+    public function cariDataBlog(){
         $keyword = $this->input->post('keyword', true);
         $this->db->like('judul', $keyword);
         $this->db->or_like('isi', $keyword);
