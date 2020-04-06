@@ -52,34 +52,75 @@ class Blog extends CI_Controller
         
     }
 
-    public function ubah($id_blog)
-    {
-        $data = array();
-        $data['judul'] = 'Form Ubah Data Blog';
-        $data['blog'] = $this->Blog_model->getBlogById($id_blog);
+    public function edit($id_blog){
+    $kondisi = array('id_blog' => $id_blog );
 
-        $this->form_validation->set_rules('judul', 'Judul Blog', 'required');
-        $this->form_validation->set_rules('isi', 'Konten', 'required');
-        //$this->form_validation->set_rules('gambar', 'Gambar', 'required');
-        $this->form_validation->set_rules('tanggal_create', 'Tanggal', 'required');
+    $data['blg'] = $this->Blog_model->get_by_id($kondisi);
+    
+    $this->form_validation->set_rules('judul', 'Judul Blog', 'required');
+    $this->form_validation->set_rules('isi', 'Konten', 'required');
+    //$this->form_validation->set_rules('gambar', 'Gambar', 'required');
+    $this->form_validation->set_rules('tanggal_create', 'Tanggal', 'required');
+    $this->form_validation->set_rules('tanggal_update', 'Tanggal', 'required');
 
-        if ($this->form_validation->run() == false) {
-            $this->load->view('server/templates/header');
-            $this->load->view('server/blog/ubah',$data);
-            $this->load->view('server/templates/footer');
-            
-        }else if($this->input->post('ubah')){ 
+    if ($this->form_validation->run() == false) {
+        $this->load->view('server/templates/header');
+        $this->load->view('server/blog/ubah',$data);
+        $this->load->view('server/templates/footer');
+    }
+    
+    }
 
-            $upload = $this->Blog_model->upload();
+    public function updatedata(){
 
-            if($upload['result'] == "success"){
-                
-                $this->Blog_model->ubahDataBlog($upload);
-                
-                redirect('server/blog');
-            }else{
-                $data['message'] = $upload['error'];
+    $this->load->library('upload'); 
+
+    $id_blog   = $this->input->post('id_blog');
+    $judul = $this->input->post('judul');
+    $isi = $this->input->post('isi');
+    $tanggal_create = $this->input->post('tanggal_create');
+    $tanggal_update = $this->input->post('tanggal_update');
+
+    $path = './images/';
+
+    $kondisi = array('id_blog' => $id_blog );
+
+    $config['upload_path'] = './images/';
+    $config['allowed_types'] = 'jpg|png|jpeg|gif';
+    $config['max_size'] = '2048';
+    $config['file_name'] = $_FILES['img_new']['name'];
+
+    $this->upload->initialize($config);
+
+	if (!empty($_FILES['img_new']['name'])) {
+        if ( $this->upload->do_upload('img_new') ) {
+        $gambar = $this->upload->data();
+        $data = array(
+            'judul'             => $judul,
+            'isi'               => $isi,
+            'gambar'            => $gambar['file_name'],
+            'tanggal_create'    => $tanggal_create,
+            'tanggal_update'    => $tanggal_update,
+            );
+            // replace image
+            @unlink($path.$this->input->post('img_old'));
+
+			$this->Blog_model->update($data,$kondisi);
+            redirect('server/blog');
+            }else {
+            die("gagal update");
             }
+        }else {
+        //no image update
+        $data = array(
+            'judul'             => $judul,
+            'isi'               => $isi,
+            //'gambar'            => $gambar['file_name'],
+            'tanggal_create'    => $tanggal_create,
+            'tanggal_update'    => $tanggal_update,
+        );
+        $this->Blog_model->update($data,$kondisi);
+        redirect('server/blog');
         }
     }
 

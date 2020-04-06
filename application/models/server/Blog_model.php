@@ -28,7 +28,6 @@ class Blog_model extends CI_model {
         }
     }
 
-
     public function tambahDataBlog($upload)
     {
         $data = array(
@@ -41,21 +40,16 @@ class Blog_model extends CI_model {
         $this->db->insert('blog', $data);
     }
 
-    public function ubahDataBlog()
-    {
-            $data = [
-                "id_blog" => $this->input->post('id_blog', true),
-                "judul" => $this->input->post('judul', true),
-                "isi" => $this->input->post('isi', true),
-                "gambar" => $upload['file']['file_name'],
-                "tanggal_create" => $this->input->post('tanggal_create', true),
-                "tanggal_update" => $this->input->post('tanggal_update', true)
-            ];
-    
-            $this->db->where('id_blog', $this->input->post('id_blog'));
-            $this->db->update('blog', $data);
-        //}
-        
+    public function get_by_id($kondisi){
+        $this->db->from('blog');
+        $this->db->where($kondisi);
+        $query = $this->db->get();
+    return $query->row();
+    }
+
+    public function update($data,$kondisi){
+        $this->db->update('blog',$data,$kondisi);
+    return TRUE;
     }
 
     public function hapusDataBlog($id_blog)

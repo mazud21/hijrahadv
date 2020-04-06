@@ -1,81 +1,97 @@
-<div class="container">
+<?php 
+function tgl_indo($tanggal){
+	$bulan = array (
+		1 =>   'Januari',
+		'Februari',
+		'Maret',
+		'April',
+		'Mei',
+		'Juni',
+		'Juli',
+		'Agustus',
+		'September',
+		'Oktober',
+		'November',
+		'Desember'
+	);
+	$pecahkan = explode('-', $tanggal);
 
+	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}
+?>
+
+<script>
+    var readURL= function(event) {
+    var input = event.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+        var dataURL = reader.result;
+        var output = document.getElementById('gambar');
+        output.src = dataURL;
+    };
+    reader.readAsDataURL(input.files[0]);
+};
+</script>
+
+<div class="container">
+<div style="color: red;"><i><?php echo (isset($message))? $message : ""; ?></i></div>
+    
     <div class="row mt-3">
         <div class="col-md-6">
 
             <div class="card">
                 <div class="card-header">
-                    Form Ubah Data Pelanggan
+                    Form Ubah Data Blog
                 </div>
+
                 <div class="card-body">
-                    <form action="" method="post">
-                        <!--input type="hidden" name="id" value="<?= $pelanggan['no_pelanggan']; ?>" readonly-->
-                        <div class="form-group">
-                            <label for="no_pelanggan">Nomor Pelanggan</label>
-                            <input type="text" name="no_pelanggan" class="form-control" id="no_pelanggan" value="<?= $pelanggan['no_pelanggan']; ?>" readonly>
-                            <small class="form-text text-danger"><?= form_error('no_pelanggan'); ?></small>
-                        </div>
+                <?php // echo form_open_multipart('server/blog/update/'.$blog->id_blog);?>
+                <!--form action="" method="post"-->
+                <form action="<?=base_url()?>server/blog/updatedata" method="post" enctype="multipart/form-data">
+                    
+                    <div class="form-group">
+                        <label for="judul">Judul</label>
+                        <input type="text" name="judul" class="form-control" id="judul" value="<?= $blg->judul;?>">
+                        <small class="form-text text-danger"><?= form_error('judul'); ?></small>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="text" name="password" class="form-control" id="password" value="<?= $pelanggan['password']; ?>">
-                            <small class="form-text text-danger"><?= form_error('password'); ?></small>
-                        </div>
+                    <div class="form-group">
+                        <label for="isi">Konten</label>
+                        <input type="text" name="isi" class="form-control" id="isi" value="<?= $blg->isi;?>">
+                        <small class="form-text text-danger"><?= form_error('isi'); ?></small>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="no_ktp">Nomor KTP</label>
-                            <input type="text" name="no_ktp" class="form-control" id="no_ktp" value="<?= $pelanggan['no_ktp']; ?>">
-                            <small class="form-text text-danger"><?= form_error('no_ktp'); ?></small>
-                        </div>
+                    <div class="form-group">
+                        <label for="tanggal_create">Tanggal</label>
+                        <input type="text" name="tanggal_create" class="form-control" id="tanggal_create" value="<?= $blg->tanggal_create; ?>" readonly>
+                        <small class="form-text text-danger"><?= form_error('tanggal_create'); ?></small>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="nama">Nama</label>
-                            <input type="text" name="nama" class="form-control" id="nama" value="<?= $pelanggan['nama']; ?>">
-                            <small class="form-text text-danger"><?= form_error('nama'); ?></small>
-                        </div>
+                    <div class="form-group">
+                        <label for="tanggal_update">Tanggal Update</label>
+                        <input type="text" name="tanggal_update" class="form-control" id="tanggal_update" value="<?= tgl_indo(date('Y-m-d')); ?>" readonly>
+                        <small class="form-text text-danger"><?= form_error('tanggal_update'); ?></small>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="alamat">Alamat</label>
-                            <input type="text" name="alamat" class="form-control" id="alamat" value="<?= $pelanggan['alamat']; ?>">
-                            <small class="form-text text-danger"><?= form_error('alamat'); ?></small>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="text" name="email" class="form-control" id="email" value="<?= $pelanggan['email']; ?>">
-                            <small class="form-text text-danger"><?= form_error('email'); ?></small>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="no_hp">Nomor HP</label>
-                            <input type="text" name="no_hp" class="form-control" id="no_hp" value="<?= $pelanggan['no_hp']; ?>">
-                            <small class="form-text text-danger"><?= form_error('no_hp'); ?></small>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="foto_ktp">Foto KTP</label>
-                            <p><img src="<?= base_url('./images/'.$pelanggan['foto_ktp'])?>" 
-                            width="200px" height="125px">
-                            <!--input type="file" name="foto_ktp" class="form-control" id="foto_ktp"-->
+                    <div class="form-group">                            
+                        <label for="gambar">Gambar</label>
+                        <img id='gambar' name='gambar' src=<?= base_url("images/".$blg->gambar)?> width='100' height='100'>
+                        <input type="file" name="img_new" id="img_new" class="form-control" id="gambar" onchange='readURL(event)'>
+                        <small class="form-text text-danger"><?= form_error('gambar'); ?></small>
+                    </div>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="pilih_tarif">Pilih Tarif</label>
-                            <select class="form-control" id="pilih_tarif" name="pilih_tarif">
-                                <?php foreach( $pilih_tarif as $pt ) : ?>
-                                    <?php if( $pt == $pelanggan['pilih_tarif'] ) : ?>
-                                        <option value="<?= $pt; ?>" selected><?= $pt; ?></option>
-                                    <?php else : ?>
-                                        <option value="<?= $pt; ?>"><?= $pt; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                        <button type="submit" name="ubah" class="btn btn-primary float-right">Ubah Data</button>
-                        <a href="<?= base_url(); ?>pelanggan" class="btn btn-primary float-right mx-2" >Kembali</a>
-                    </form>
-                </div>
+                    <!-- file lama -->
+          <input type="hidden" name="img_old" value="<?=$blg->gambar?>">
+          <!-- ID -->
+          <input type="hidden" name="id_blog" value="<?=$blg->id_blog?>">
+
+                    <input type="submit" id="ubah" name="ubah" class="btn btn-primary float-right" value='Ubah Data'></button>
+                </form>
+                <?php echo form_close(); ?>            
             </div>
+
+
         </div>
     </div>
 

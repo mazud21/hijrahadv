@@ -81,7 +81,7 @@
                                                 <td><img src="<?= base_url("images/".$blg['gambar']); ?>" alt="image.png" width="200px"></td>
                                                 <td><a href="<?= base_url(); ?>server/blog/hapus/<?= $blg['id_blog']; ?>"
                                                                 class="badge badge-danger float-right tombol-hapus">hapus</a>
-                                                            <a href="<?= base_url(); ?>server/blog/ubah/<?= $blg['id_blog']; ?>"
+                                                            <a href="<?= base_url(); ?>server/blog/edit/<?= $blg['id_blog']; ?>"
                                                                 class="badge badge-success float-right">ubah</a>
                                                             <a href="<?= base_url(); ?>server/blog/detail/<?= $blg['id_blog']; ?>"
                                                                 class="badge badge-primary float-right">detail</a></td>
