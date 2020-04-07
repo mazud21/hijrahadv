@@ -16,23 +16,20 @@ class Blog extends CI_Controller{
         $data['judul'] = 'Daftar Blog';
         $data['blog'] = $this->Blog_model->getAllBlog();
         
-        $this->load->view('server/templates/header', $data);
         $this->load->view('server/blog/index', $data);
-        $this->load->view('server/templates/footer');
     }
 
     public function tambah(){
         $data = array();
-        
+        $data['judul'] = 'Tambah Blog';
+
         $this->form_validation->set_rules('judul', 'Judul Blog', 'required');
         $this->form_validation->set_rules('isi', 'Konten', 'required');
         //$this->form_validation->set_rules('gambar', 'Gambar', 'required');
         $this->form_validation->set_rules('tanggal_create', 'Tanggal', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('server/templates/header');
             $this->load->view('server/blog/tambah',$data);
-            $this->load->view('server/templates/footer');
             
         }else if($this->input->post('tambah')){ 
 
@@ -62,9 +59,7 @@ class Blog extends CI_Controller{
         $this->form_validation->set_rules('tanggal_update', 'Tanggal', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('server/templates/header');
             $this->load->view('server/blog/ubah',$data);
-            $this->load->view('server/templates/footer');
         }
     
     }

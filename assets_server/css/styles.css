@@ -4327,6 +4327,7 @@ input[type=button].btn-block {
 }
 
 .card {
+  width : 100%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -9926,6 +9927,7 @@ h3 {
   }
 
   .container {
+    width: 100% ;
     min-width: 992px !important;
   }
 
