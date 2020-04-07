@@ -127,8 +127,6 @@ class Blog extends CI_Controller{
     public function detail($id_blog){
         $data['judul'] = 'Detail Data Blog';
         $data['blog'] = $this->Blog_model->getBlogById($id_blog);
-        $this->load->view('server/templates/header', $data);
         $this->load->view('server/blog/detail', $data);
-        $this->load->view('server/templates/footer');
     }
 }

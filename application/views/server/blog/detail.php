@@ -2,22 +2,22 @@
 <html lang="en">
     <head>
     <title>Dashboard Admin PDAM</title>
-        <?php $this->load->view("templates/header.php") ?>
+        <?php $this->load->view("server/templates/header.php") ?>
     </head>
 
     <body>
-    <?php $this->load->view("templates/head_nav.php") ?>
+    <?php $this->load->view("server/templates/head_nav.php") ?>
 
     <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     
                 <!-- menu -->
-                    <?php $this->load->view("templates/side_menu.php") ?>
+                    <?php $this->load->view("server/templates/side_menu.php") ?>
                 <!-- menu END -->
 
                 <!-- side footer -->
-                    <?php $this->load->view("templates/side_footer.php") ?>
+                    <?php $this->load->view("server/templates/side_footer.php") ?>
                 <!-- side footer END-->
                 </nav>
             </div>
@@ -42,44 +42,31 @@
                                             
                                                 <div class="card-body">
                                                     <div class="form-group">
-                                                            <label for=""><h6 class="card-subtitle text-muted">Nomor Pelanggan</h6></label><br>
-                                                            <?= $pelanggan['no_pelanggan']; ?>
+                                                            <label for=""><h6 class="card-subtitle text-muted">Nomor blog</h6></label><br>
+                                                            <?= $blog['id_blog']; ?>
                                                         </div>
                                                     <div class="form-group">
                                                             <label for=""><h6 class="card-subtitle text-muted">Nama</h6></label><br>
-                                                            <?= $pelanggan['nama']; ?>
+                                                            <?= $blog['judul']; ?>
                                                         </div>
                                                     <div class="form-group">
-                                                            <label for=""><h6 class="card-subtitle text-muted">Nomor KTP</h6></label><br>
-                                                            <?= $pelanggan['no_ktp']; ?>
+                                                            <label for=""><h6 class="card-subtitle text-muted">Nama</h6></label><br>
+                                                            <?= $blog['isi']; ?>
                                                         </div>
                                                     <div class="form-group">
-                                                            <label for=""><h6 class="card-subtitle text-muted">Alamat</h6></label><br>
-                                                            <?= $pelanggan['alamat']; ?>
+                                                            <label for=""><h6 class="card-subtitle text-muted">Nama</h6></label><br>
+                                                            <?= $blog['tanggal_create']; ?>
                                                         </div>
                                                     <div class="form-group">
-                                                            <label for=""><h6 class="card-subtitle text-muted">Alamat Email</h6></label><br>
-                                                            <?= $pelanggan['email']; ?>
-                                                        </div>
-                                                    <div class="form-group">
-                                                            <label for=""><h6 class="card-subtitle text-muted">Nomor HP</h6></label><br>
-                                                            <?= $pelanggan['no_hp']; ?>
+                                                            <label for=""><h6 class="card-subtitle text-muted">Nama</h6></label><br>
+                                                            <?= $blog['tanggal_update']; ?>
                                                         </div>
                                                     <div class="form-group">
                                                             <label for=""><h6 class="card-subtitle text-muted">Foto KTP</h6></label><br>
-                                                            <img src="<?= base_url('./images/'.$pelanggan['foto_ktp'])?>" 
+                                                            <img src="<?= base_url('./images/'.$blog['gambar'])?>" 
                                                             width="200px" height="125px">
                                                         </div>
-                                                    <div class="form-group">
-                                                            <label for=""><h6 class="card-subtitle text-muted">Pilihan Tarif Air</h6></label><br>
-                                                            <?= $pelanggan['pilih_tarif']; ?>
-                                                        </div>
-                                                    <div class="form-group">
-                                                            <label for=""><h6 class="card-subtitle text-muted">Password</h6></label><br>
-                                                            <?= $pelanggan['password']; ?>
-                                                        </div>
-
-                                                    <a href="<?= base_url(); ?>pelanggan" class="btn btn-primary">Kembali</a>
+                                                    <a href="<?= base_url(); ?>server/blog" class="btn btn-primary">Kembali</a>
                                                 </div>
                                         </div>
                                     </div>
@@ -93,13 +80,13 @@
 
                 <!-- footer -->
                 <footer class="py-4 bg-light mt-auto">
-                    <?php $this->load->view("templates/footer.php") ?>    
+                    <?php $this->load->view("server/templates/footer.php") ?>    
                 </footer>
                 <!-- footer END -->
             </div>
         </div>
         <!-- scripts -->
-        <?php $this->load->view("templates/script_js.php") ?>
+        <?php $this->load->view("server/templates/script_js.php") ?>
         <!-- scripts END -->
     </body>
 </html>
