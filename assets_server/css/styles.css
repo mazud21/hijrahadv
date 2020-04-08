@@ -4423,7 +4423,7 @@ input[type=button].btn-block {
 .card-img,
 .card-img-top,
 .card-img-bottom {
-  flex-shrink: 0;
+  /*flex-shrink: 0;*/
   width: 100%;
 }
 
@@ -10213,4 +10213,7 @@ body {
 }
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
+}
+.img-circle {
+  border-radius: 50%;
 }

@@ -26,19 +26,73 @@
 
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4"><?= $judul ?></h1>
+                        <div class="mt-3"></div>
                         
-                        <ol class="breadcrumb mb-4">
+                        <ol class="breadcrumb mb-1">
                             <li class="breadcrumb-item active"><a href="<?= base_url(); ?>"><?= $judul ?></a></li>
                         </ol>
             <!-- CONTENT -->
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <p class="mb-0">
-                                <h1 class="text-center">Selamat datang <code><?php echo $this->session->userdata('nama'); ?><?php echo $this->session->userdata('id'); ?></code>
-                                </p>
-                            </div>
+            <div class="card-group">
+                <div class="card text-white bg-info border border-dark m-1 text">
+                    <a class="text-white" href="#">
+                        <img class="card-img-top" src="<?= base_url(); ?>/images/admin/tenda.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h7 class="card-title">Tenda</h7>
                         </div>
+                    </a>
+                </div>
+                <div class="card text-white bg-info border border-dark m-1">
+                    <img class="card-img-top" src="<?= base_url(); ?>/images/admin/carrier.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h7 class="card-title">Carrier</h7>
+                    
+                    </div>
+                </div>
+                <div class="card text-white bg-info border border-dark m-1">
+                    <img class="card-img-top" src="<?= base_url(); ?>/images/admin/sb.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h7 class="card-title">Sleeping Bag</h7>
+                
+                    </div>
+                </div>
+                <div class="card text-white bg-info border border-dark m-1">
+                    <img class="card-img-top" src="<?= base_url(); ?>/images/admin/matras.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h7 class="card-title">Matras</h7>
+                    
+                    </div>
+                </div>
+                </div>
+                <div class="card-group">
+                <div class="card text-white bg-info border border-dark m-1">
+                    <img class="card-img-top" src="<?= base_url(); ?>/images/admin/kompor.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h7 class="card-title">Kompor Portable</h7>
+                    
+                    </div>
+                </div>
+                <div class="card text-white bg-info border border-dark m-1">
+                    <img class="card-img-top" src="<?= base_url(); ?>/images/admin/gas.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h7 class="card-title">Tabung Gas Mini</h7>
+                    
+                    </div>
+                </div>
+                <div class="card text-white bg-info border border-dark m-1">
+                    <img class="card-img-top" src="<?= base_url(); ?>/images/admin/nesting.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h7 class="card-title">Nesting Cook Set</h7>
+                    
+                    </div>
+                </div>
+                <div class="card text-white bg-info border border-dark m-1">
+                    <img class="card-img-top" src="<?= base_url(); ?>/images/admin/lampu_kepala.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h7 class="card-title">Lampu Kepala</h7>
+                    
+                    </div>
+                </div>
+                </div>
             <!-- CONTENT END -->
                     </div>
                 </main>
