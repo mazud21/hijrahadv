@@ -34,7 +34,7 @@
             <!-- CONTENT -->
             <div class="card-group">
                 <div class="card text-white bg-info border border-dark m-1 text">
-                    <a class="text-white" href="#">
+                    <a class="text-white" href="<?= base_url(); ?>server/tenda">
                         <img class="card-img-top" src="<?= base_url(); ?>/images/admin/tenda.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h7 class="card-title">Tenda</h7>
