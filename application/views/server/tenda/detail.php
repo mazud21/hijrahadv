@@ -39,34 +39,65 @@
                                     <div class="row mt-3">
                                         <div class="col-md-6">
 
-                                            
                                                 <div class="card-body">
                                                     <div class="form-group">
-                                                            <label for=""><h6 class="card-subtitle text-muted">Nomor blog</h6></label><br>
-                                                            <?= $blog['id_blog']; ?>
+                                                            <label for=""><h6 class="card-subtitle text-muted">Nomor Tenda</h6></label><br>
+                                                            <?= $tent['id_tenda']; ?>
                                                         </div>
                                                     <div class="form-group">
                                                             <label for=""><h6 class="card-subtitle text-muted">Nama</h6></label><br>
-                                                            <?= $blog['judul']; ?>
+                                                            <?= $tent['nama']; ?>
                                                         </div>
                                                     <div class="form-group">
-                                                            <label for=""><h6 class="card-subtitle text-muted">Nama</h6></label><br>
-                                                            <?= $blog['isi']; ?>
+                                                            <label for=""><h6 class="card-subtitle text-muted">Brand</h6></label><br>
+                                                            <?= $tent['merk']; ?>
                                                         </div>
                                                     <div class="form-group">
-                                                            <label for=""><h6 class="card-subtitle text-muted">Nama</h6></label><br>
-                                                            <?= $blog['tanggal_create']; ?>
-                                                        </div>
-                                                    <div class="form-group">
-                                                            <label for=""><h6 class="card-subtitle text-muted">Nama</h6></label><br>
-                                                            <?= $blog['tanggal_update']; ?>
-                                                        </div>
-                                                    <div class="form-group">
-                                                            <label for=""><h6 class="card-subtitle text-muted">Foto KTP</h6></label><br>
-                                                            <img src="<?= base_url('./images/'.$blog['gambar'])?>" 
+                                                            <label for=""><h6 class="card-subtitle text-muted">Foto Tenda</h6></label><br>
+                                                            <img src="<?= base_url('./images/'.$tent['gambar'])?>" 
                                                             width="200px" height="125px">
                                                         </div>
-                                                    <a href="<?= base_url(); ?>server/blog" class="btn btn-primary">Kembali</a>
+                                                    <div class="form-group">
+                                                            <label for=""><h6 class="card-subtitle text-muted">Kapasitas</h6></label><br>
+                                                            <?= $tent['capacity']; ?>
+                                                        </div>
+                                                    <div class="form-group">
+                                                            <label for=""><h6 class="card-subtitle text-muted">Layer</h6></label><br>
+                                                            <?= $tent['layer']; ?>
+                                                        </div>
+                                                    <div class="form-group">
+                                                            <label for=""><h6 class="card-subtitle text-muted">Color</h6></label><br>
+                                                            <?= $tent['color']; ?>
+                                                        </div>
+                                                    <div class="form-group">
+                                                            <label for=""><h6 class="card-subtitle text-muted">Flysheet</h6></label><br>
+                                                            <?= $tent['flysheet']; ?>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for=""><h6 class="card-subtitle text-muted">Inner</h6></label><br>
+                                                            <?= $tent['inner_']; ?>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for=""><h6 class="card-subtitle text-muted">Floor</h6></label><br>
+                                                            <?= $tent['floor']; ?>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for=""><h6 class="card-subtitle text-muted">Poles</h6></label><br>
+                                                            <?= $tent['poles']; ?>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for=""><h6 class="card-subtitle text-muted">Dimensi</h6></label><br>
+                                                            <?= $tent['size']; ?>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for=""><h6 class="card-subtitle text-muted">Berat</h6></label><br>
+                                                            <?= $tent['weight']; ?>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for=""><h6 class="card-subtitle text-muted">Biaya Sewa</h6></label><br>
+                                                            <?= $tent['biaya']; ?>
+                                                        </div>
+                                                    <a href="<?= base_url(); ?>server/tenda" class="btn btn-primary">Kembali</a>
                                                 </div>
                                         </div>
                                     </div>

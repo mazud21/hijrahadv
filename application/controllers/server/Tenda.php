@@ -59,7 +59,7 @@ class Tenda extends CI_Controller{
     public function edit($id_tenda){
         $kondisi = array('id_tenda' => $id_tenda );
 
-        $data['blg'] = $this->Tenda_model->get_by_id($kondisi);
+        $data['tent'] = $this->Tenda_model->get_by_id($kondisi);
         
         $this->form_validation->set_rules('nama', 'Nama Tenda', 'required');
         $this->form_validation->set_rules('merk', 'Brand', 'required');
@@ -120,12 +120,12 @@ class Tenda extends CI_Controller{
                         'capacity'  => $capacity,
                         'layer'     => $layer,
                         'color'     => $color,
-                        'flysheet'     => $flysheet,
-                        'inner_'     => $inner_,
+                        'flysheet'  => $flysheet,
+                        'inner_'    => $inner_,
                         'floor'     => $floor,
                         'poles'     => $poles,
-                        'size'     => $size,
-                        'weight'     => $weight,
+                        'size'      => $size,
+                        'weight'    => $weight,
                         'biaya'     => $biaya,
                         );
                 // replace image
@@ -166,8 +166,8 @@ class Tenda extends CI_Controller{
     }
 
     public function detail($id_tenda){
-        $data['judul'] = 'Detail Data Blog';
-        $data['tenda'] = $this->Tenda_model->getTendaById($id_tenda);
+        $data['judul'] = 'Detail Data Tenda';
+        $data['tent'] = $this->Tenda_model->getTendaById($id_tenda);
         $this->load->view('server/tenda/detail', $data);
     }
 }

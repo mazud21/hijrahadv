@@ -1,28 +1,7 @@
-<?php 
-function tgl_indo($tanggal){
-	$bulan = array (
-		1 =>   'Januari',
-		'Februari',
-		'Maret',
-		'April',
-		'Mei',
-		'Juni',
-		'Juli',
-		'Agustus',
-		'September',
-		'Oktober',
-		'November',
-		'Desember'
-	);
-	$pecahkan = explode('-', $tanggal);
-
-	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <title>Blog Hijrah Adventure</title>
+    <title>Tenda|Hijrah Adventure</title>
         <?php $this->load->view("server/templates/header.php") ?>
         <script type="text/javascript" src="<?= base_url(); ?>assets/ckeditor/ckeditor.js"></script>
         <script>
@@ -68,68 +47,139 @@ function tgl_indo($tanggal){
                         </ol>
                     <!-- CONTENT -->
                     <div class="container">
-                        <div style="color: red;"><i><?php echo (isset($message))? $message : ""; ?></i>
-                        </div>
-                        <div class="row mt-3">
+                            <div style="color: red;"><i><?php echo (isset($message))? $message : ""; ?></i></div>
                             
+                            <div class="row mt-3">
                                 <div class="card">
                                     <div class="card-header">
-                                            Form Ubah Data Blog
+                                            Form Edit Data Tenda
                                     </div>
-                                        <div class="card-body">
-                                            <?php // echo form_open_multipart('server/blog/update/'.$blog->id_blog);?>
-                                            <!--form action="" method="post"-->
-                                            <form action="<?=base_url()?>server/blog/updatedata" method="post" enctype="multipart/form-data">
-                                                
+
+                                    <div class="card-body">
+                                        <?php echo form_open("server/tenda/updatedata", array('enctype'=>'multipart/form-data')); ?>
+                                        <form action="" method="post">
+                                            
+                                        <div class="row">
+                                            <div class="col-sm">
                                                 <div class="form-group">
-                                                    <label for="judul">Judul</label>
-                                                    <input type="text" name="judul" class="form-control" id="judul" value="<?= $blg->judul;?>">
-                                                    <small class="form-text text-danger"><?= form_error('judul'); ?></small>
+                                                    <label for="nama">Nama Tenda</label>
+                                                    <input type="text" name="nama" class="form-control" id="nama" value="<?= $tent->nama;?>">
+                                                    <small class="form-text text-danger"><?= form_error('nama'); ?></small>
                                                 </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="merk">Brand</label>
+                                                    <input type="text" name="merk" class="form-control" id="merk" value="<?= $tent->merk;?>">
+                                                    <small class="form-text text-danger"><?= form_error('merk'); ?></small>
+                                                </div>
+                                            </div>
                                                 
                                                 <!-- file lama -->
-                                                <input type="hidden" name="img_old" value="<?=$blg->gambar?>">
+                                                <input type="hidden" name="img_old" value="<?=$tent->gambar?>">
                                                 <!-- ID -->
-                                                <input type="hidden" name="id_blog" value="<?=$blg->id_blog?>">
+                                                <input type="hidden" name="id_tenda" value="<?=$tent->id_tenda?>">
 
+                                            <div class="col-sm">
                                                 <div class="form-group">                            
-                                                    <label for="gambar">Gambar</label><br>
-                                                    <img id='gambar' name='gambar' src=<?= base_url("images/".$blg->gambar)?> width='500'>
-                                                    <input type="file" name="img_new" id="img_new" class="form-control" id="gambar" onchange='readURL(event)'>
+                                                    <label for="gambar">Gambar</label>
+                                                    <!--img class="rounded mx-auto d-block" id='gambar' name='gambar' src="https://cdn3.iconfinder.com/data/icons/misc-file-formats/512/20-512.png" width="200"-->
+                                                    <img class="rounded mx-auto d-block" id='gambar' name='gambar' src=<?= base_url("images/".$tent->gambar)?> width='200'>
+                                                    <input type="file" name="gambar" class="form-control" id="gambar" onchange='readURL(event)'>
                                                     <small class="form-text text-danger"><?= form_error('gambar'); ?></small>
                                                 </div>
-
-                                                <div class="form-group">
-                                                    <label for="isi">Konten</label>
-                                                    <!--input type="text" name="isi" class="form-control" id="isi" value="<?= $blg->isi;?>"-->
-                                                    <textarea class="ckeditor" id="isi" name="isi" ><?= $blg->isi;?></textarea>
-                                                    <small class="form-text text-danger"><?= form_error('isi'); ?></small>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-sm">
-                                                        <div class="form-group">
-                                                            <label for="tanggal_create">Tanggal</label>
-                                                            <input type="text" name="tanggal_create" class="form-control" id="tanggal_create" value="<?= $blg->tanggal_create; ?>" readonly>
-                                                            <small class="form-text text-danger"><?= form_error('tanggal_create'); ?></small>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <div class="form-group">
-                                                            <label for="tanggal_update">Tanggal Update</label>
-                                                            <input type="text" name="tanggal_update" class="form-control" id="tanggal_update" value="<?= tgl_indo(date('Y-m-d')); ?>" readonly>
-                                                            <small class="form-text text-danger"><?= form_error('tanggal_update'); ?></small>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <input type="submit" id="ubah" name="ubah" class="btn btn-primary float-right" value='Ubah Data'></button>
-                                            </form>
-                                            <?php echo form_close(); ?>            
+                                            </div>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="capacity">Kapasitas</label>
+                                                    <input type="text" name="capacity" class="form-control" id="capacity" value="<?= $tent->capacity;?>">
+                                                    <!--select class="browser-default custom-select"> 
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="4">4</option>
+                                                        <option value="6">6</option>
+                                                        <option value="8">8</option>
+                                                    </select-->
+                                                    <small class="form-text text-danger"><?= form_error('capacity'); ?></small>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="layer">Layer</label>
+                                                    <input type="text" name="layer" class="form-control" id="layer" value="<?= $tent->layer;?>">
+                                                    <small class="form-text text-danger"><?= form_error('layer'); ?></small>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="color">Color</label>
+                                                    <input type="text" name="color" class="form-control" id="color" value="<?= $tent->color;?>">
+                                                    <small class="form-text text-danger"><?= form_error('color'); ?></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="flysheet">Flysheet</label>
+                                                    <input type="text" name="flysheet" class="form-control" id="flysheet" value="<?= $tent->flysheet;?>">
+                                                    <small class="form-text text-danger"><?= form_error('flysheet'); ?></small>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="inner_">Inner</label>
+                                                    <input type="text" name="inner_" class="form-control" id="inner_" value="<?= $tent->inner_;?>">
+                                                    <small class="form-text text-danger"><?= form_error('inner_'); ?></small>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="floor">Floor</label>
+                                                    <input type="text" name="floor" class="form-control" id="floor" value="<?= $tent->floor;?>">
+                                                    <small class="form-text text-danger"><?= form_error('floor'); ?></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="poles">Poles</label>
+                                                    <input type="text" name="poles" class="form-control" id="poles" value="<?= $tent->poles;?>">
+                                                    <small class="form-text text-danger"><?= form_error('poles'); ?></small>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="size">Dimensi</label>
+                                                    <input type="text" name="size" class="form-control" id="size" value="<?= $tent->size;?>">
+                                                    <small class="form-text text-danger"><?= form_error('size'); ?></small>
+                                                </div>
+                                                </div>
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="weight">Berat</label>
+                                                    <input type="text" name="weight" class="form-control" id="weight" value="<?= $tent->weight;?>">
+                                                    <small class="form-text text-danger"><?= form_error('weight'); ?></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <div class="form-group">
+                                                <label for="biaya">Biaya Sewa</label>
+                                                <input type="text" name="biaya" class="form-control" id="biaya" value="<?= $tent->biaya;?>">
+                                                <small class="form-text text-danger"><?= form_error('biaya'); ?></small>
+                                            </div>
+                                        
+                                        <input type="submit" id="ubah" name="ubah" class="btn btn-primary float-right" value='Ubah Data'></button>
+                                        </form>
+                                        <?php echo form_close(); ?>            
+                                    </div>
                                 </div>
-                            
+                            </div>
                         </div>
-                    </div>
                     <!-- CONTENT END -->
                     </div>
                 </main>
