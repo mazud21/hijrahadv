@@ -8,7 +8,6 @@
     </head>
 
     <body>
-    
     <?php $this->load->view("client/templates/header.php") ?>
                 
         <!-- Start Header Section -->
@@ -33,49 +32,48 @@
                 <div class="col-md-8 blog-body">
                     
                     <!-- Start Blog post -->
-                    <div class="single-blog-post">
-                        <div class="post-img">
-                            <img src="<?= base_url() ?>assets/images/blog/blog-02.jpg" class="img-responsive" alt="Blog image">
+                        <div class="single-blog-post">
+                            <div class="card">
+                            <div class="post-img">
+                            <img src="<?= base_url('./images/'.$blog['gambar'])?>" class="img-responsive" alt="Blog image">
+                            </div>
+                            <h1 class="post-title"><a href="#"><?= $blog['judul']; ?></a></h1>
+                            
+                            <div class="post-meta">
+                                <ul class=" pull-left">
+                                    <li><i class="fa fa-clock-o"></i><?= $blog['tanggal_create']; ?></li>
+                                    <li><i class="fa fa-user"></i><a href="#">Super User</a></li>
+                                    <li><i class="fa fa-file"></i><a href="#">Blog</a></li>
+                                    <li><i class="fa fa-tags"></i><a href="#">Women Rights</a></li>
+                                    <li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>
+                                </ul>
+                                <ul class="pull-right">
+                                    <li>font-size<i class="fa fa-minus-circle"></i><i class="fa fa-plus-circle"></i></li>
+                                    <li><a href="#">Print</a></li>
+                                    <li><a href="#">Email</a></li>
+                                </ul>
+                            </div>
+                            
+                            
+                            <p class="post-content"><?= $blog['isi']; ?></p>
+                            
+                            <div class="item-content-footer">
+                                <ul>
+                                    <li>Read 286 times</li>
+                                    <li class="rating">
+                                        Rate this item 
+                                        <span class="active"><i class="fa fa-star-o"></i></span>
+                                        <span class="active"><i class="fa fa-star-o"></i></span>
+                                        <span class="active"><i class="fa fa-star-o"></i></span>
+                                        <span><i class="fa fa-star-o"></i></span>
+                                        <span><i class="fa fa-star-o"></i></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
                         </div>
-                        <h1 class="post-title"><a href="#">Nulla facilisi integer lacinia sollicitudin massa</a></h1>
-                        
-                        <div class="post-meta">
-                            <ul class=" pull-left">
-                                <li><i class="fa fa-clock-o"></i>October 25 2014</li>
-                                <li><i class="fa fa-user"></i><a href="#">Super User</a></li>
-                                <li><i class="fa fa-file"></i><a href="#">Blog</a></li>
-                                <li><i class="fa fa-tags"></i><a href="#">Women Rights</a></li>
-                                <li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>
-                            </ul>
-                            <ul class="pull-right">
-                                <li>font-size<i class="fa fa-minus-circle"></i><i class="fa fa-plus-circle"></i></li>
-                                <li><a href="#">Print</a></li>
-                                <li><a href="#">Email</a></li>
-                            </ul>
-                        </div>
-                        
-                        
-                        <p class="post-content">Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo.</p>
-                        <p class="post-content">Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper.</p>
-                        <p class="post-content">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. </p>
-                        
-                        <div class="item-content-footer">
-                            <ul>
-                                <li>Read 286 times</li>
-                                <li class="rating">
-                                    Rate this item 
-                                    <span class="active"><i class="fa fa-star-o"></i></span>
-                                    <span class="active"><i class="fa fa-star-o"></i></span>
-                                    <span class="active"><i class="fa fa-star-o"></i></span>
-                                    <span><i class="fa fa-star-o"></i></span>
-                                    <span><i class="fa fa-star-o"></i></span>
-                                </li>
-                            </ul>
-                        </div>
-                        
                     </div>
                     <!-- End Blog Post -->
-                    
                     
                     <!-- Start Blog Author Section -->
                     <div class="blog-author">
@@ -193,14 +191,11 @@
                     </div>
                     <!-- End Comments Section -->
                     
-                    
-                    
-                    
                 </div>
                 <!-- End Blog Body Section -->
                 
                 <!-- Start Sidebar Section -->
-                <?php $this->load->view("client/templates/sidebar_blog.php") ?>
+
                 <!-- End Sidebar Section -->
                 
             </div>

@@ -33,6 +33,24 @@
                 <div class="col-md-8 blog-body">
                     
                     <!-- Start Blog post -->
+                    <?php if (empty($blog)) : ?>
+                                                <div class="alert alert-danger" role="alert">
+                                                data blog tidak ditemukan.
+                                                </div>
+                                            <?php endif; ?>
+                    <?php foreach ($blog as $blg) : ?>
+                                            <tr>
+                                                <td><?= $blg['id_blog']; ?></td>
+                                                <td><?= $blg['judul']; ?></td>
+                                                <td><img src="<?= base_url("images/".$blg['gambar']); ?>" alt="image.png" width="200px"></td>
+                                                <td><a href="<?= base_url(); ?>server/blog/hapus/<?= $blg['id_blog']; ?>"
+                                                                class="badge badge-danger float-right tombol-hapus">hapus</a>
+                                                            <a href="<?= base_url(); ?>server/blog/edit/<?= $blg['id_blog']; ?>"
+                                                                class="badge badge-success float-right">ubah</a>
+                                                            <a href="<?= base_url(); ?>server/blog/detail/<?= $blg['id_blog']; ?>"
+                                                                class="badge badge-primary float-right">detail</a></td>
+                                            </tr>
+                                            <?php endforeach; ?>
                     <div class="blog-post">
                         <div class="post-img">
                             <img src="<?= base_url() ?>assets/images/blog/blog-01.jpg" class="img-responsive" alt="Blog image">

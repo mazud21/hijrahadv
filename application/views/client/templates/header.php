@@ -32,11 +32,11 @@
                     </li>
                     <li>
                         <a href="<?= base_url(); ?>client/blog">Blog</a>
-                        <ul class="dropdown">
+                        <!--ul class="dropdown">
                             <li>
                                 <a href="<?= base_url(); ?>blog-item">Item Page</a>
                             </li>
-                        </ul>
+                        </ul-->
                     </li>
                     <li><a href="<?= base_url(); ?>client/contact">Contact</a>
                     </li>
