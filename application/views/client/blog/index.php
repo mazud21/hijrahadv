@@ -54,7 +54,7 @@
                             </ul>
                             
                             <p class="post-content"><?= substr($blg['isi'],0,299); ?>...</p>
-                            <a href="<?= base_url(); ?>client/blog/detail/<?= $blg['id_blog']; ?>" class="btn btn-primary readmore">Read more...<i class="fa fa-angle-right"></i></a>
+                            <input type="submit" class="btn btn-primary" value="Read More" onclick="location.href='<?= base_url(); ?>client/blog/detail/<?= $blg['id_blog']; ?>'">
                         </div>
                     <?php endforeach; ?>
                 </div>

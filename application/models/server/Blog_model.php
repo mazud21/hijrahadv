@@ -5,6 +5,10 @@ class Blog_model extends CI_model {
         return $this->db->get('blog')->result_array();
     }
 
+    public function getAllBlogSide(){
+        return $this->db->get('blog')->result_array();
+    }
+
     public function upload(){
         $config['upload_path'] = './images/';
         $config['allowed_types'] = 'jpg|png|jpeg';

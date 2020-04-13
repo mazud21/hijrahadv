@@ -69,7 +69,7 @@
         <?php foreach ($blog as $blg) : ?>
         <div class="media">
             <div class="media-left">
-                <a href="#">
+                <a href="<?= base_url(); ?>client/blog/detail/<?= $blg['id_blog']; ?>">
                     <img class="media-object" src="<?= base_url("images/".$blg['gambar']); ?>">
                 </a>
             </div>

@@ -14,7 +14,8 @@ class Blog extends CI_Controller {
 	}
 
 	public function detail($id_blog){
-        $data['blog'] = $this->Blog_model->getBlogById($id_blog);
+		$data['blog'] = $this->Blog_model->getBlogById($id_blog);
+		$data['blg'] = $this->Blog_model->getAllBlogSide();
         $this->load->view('client/blog/detail', $data);
     }
 }
