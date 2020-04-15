@@ -10,7 +10,7 @@ class Blog extends CI_Controller {
 	public function index()
 	{
 		$data['blog'] = $this->Blog_model->getAllBlog();
-		$this->load->view('client/blog/index', $data);
+		$this->load->view('client/blog/blog', $data);
 	}
 
 	public function detail($id_blog){
