@@ -24,12 +24,12 @@
           <div class="card-body">
             <?php foreach ($blog as $blg) : ?>
               <div class="post-preview">
-                    <a href="<?= base_url(); ?>client/blog/detail/<?= $blg['id_blog']; ?>">
-                        <h2 class="post-title">
-                            <?= $blg['judul']; ?>
-                        </h2>
-                    </a>
-                    <img class="img-fluid" src="<?= base_url("images/".$blg['gambar']); ?>" alt="">
+                <img class="img-fluid mb-3" src="<?= base_url("images/".$blg['gambar']); ?>" alt="" width="100%">
+                <a href="<?= base_url(); ?>client/blog/detail/<?= $blg['id_blog']; ?>">
+                  <h2 class="post-title mt-3 mb-3 text-capitalize">
+                    <?= $blg['judul']; ?>
+                  </h2>
+                </a>
                     <style>
                         h3.post-subtitle.post{
                             text-transform: lowercase;
@@ -56,11 +56,9 @@
       </div>
 
       <div class="col-4">
-        <div class="card">
-          <div class="card-body">
-            lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. it has survived not only...
-          </div>
-        </div>
+      <!-- START SIDEBAR -->
+        <?php $this->load->view("client/templates/sidebar_blog.php") ?>
+      <!-- END SIDEBAR -->
       </div>
     </div>
   
