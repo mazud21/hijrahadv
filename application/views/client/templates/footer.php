@@ -25,21 +25,22 @@
                     <h5>Support</h5>
                     <ul>
                     <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Email">
-                    <button type="submit" class="btn btn-info">Submit</button>
+                    <button type="submit" class="btn-submit">Submit</button>
                     </ul>
                 </div>
                 <div class="col-sm-2">
                   <h5>Follow Us</h5>
-                    <div class="social-networks">
+                    <div class="social-networks h2">
                         <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
                         <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
                         <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                        
                     </div>
                 </div>
             </div>
         </div>
         <div class="footer-copyright">
-            <p>© 2020 Copyright Hijrahadv </p>
+        <p>© 2020 Copyright<a href="<?= base_url(); ?>"> Hijrahadv </a></p>
         </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

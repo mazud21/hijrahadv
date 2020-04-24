@@ -6,7 +6,15 @@
 body{
     font-size:20px;
     color:#212529;
-    font-family:Lora,'Quicksand',serif
+    font-family:Lora,'Quicksand',serif;
+
+    background-image: url("https://wallpaperaccess.com/full/267434.jpg");
+    /* Add the blur effect */
+    
+    
+    background-size: 100%;
+    background-position: center;
+    
 }
 
 p{
@@ -130,7 +138,7 @@ img::-moz-selection{
     }
     
     #mainNav .navbar-nav>li.nav-item>a:focus,#mainNav .navbar-nav>li.nav-item>a:hover{
-        color:rgba(255,255,255,.8)
+        color:#62b2f8;
     }
 }
 
@@ -145,8 +153,7 @@ img::-moz-selection{
         position:fixed;
         top:-67px;
         transition:transform .2s;
-        border-bottom:1px solid #fff;
-        background-color:#00657b
+        background-color: #0086a160;
     }
     
     #mainNav.is-fixed .navbar-brand{
@@ -162,7 +169,7 @@ img::-moz-selection{
     }
     
     #mainNav.is-fixed .navbar-nav>li.nav-item>a:focus,#mainNav.is-fixed .navbar-nav>li.nav-item>a:hover{
-        color:#2880ce
+        color:#00eeff
     }
     
     #mainNav.is-visible{
@@ -395,7 +402,7 @@ header.masthead .page-heading .subheading,header.masthead .site-heading .subhead
         position:fixed;
         width:60px;
         height:60px;
-        bottom:60px;
+        bottom:90px;
         right:40px;
         background-color:#25d366;
         color:#FFF;
@@ -406,6 +413,11 @@ header.masthead .page-heading .subheading,header.masthead .site-heading .subhead
         z-index:100;
     }
     
+    .float:hover{
+        background-color:#fff;
+        color:#25d366;
+    }
+
     .my-float{
         margin-top:16px;
     }

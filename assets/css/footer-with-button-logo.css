@@ -1,15 +1,15 @@
 #myFooter {
     background-color: #00657b;
     color: white;
-    padding-top: 30px;
+    padding-top: 50px;
     font-family: 'Quicksand', Arial;
 }
 
 #myFooter .footer-copyright {
-    background-color: #333333;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    
+    padding: 20px;
     text-align: center;
+    font-weight: 700;
 }
 
 #myFooter .row {
@@ -23,7 +23,8 @@
 
 #myFooter .footer-copyright p {
     margin: 10px;
-    color: #ccc;
+    color: #fff;
+    font-weight: 500;
 }
 
 #myFooter ul {
@@ -53,13 +54,17 @@
 #myFooter a:hover,
 #myFooter a:focus {
     text-decoration: none;
-    color: #00aced;
+    color: #00eefff3;
 }
 
 #myFooter .social-networks {
     text-align: center;
     padding-bottom: 16px;
+    width: 100%;
+    position: relative;
 }
+
+#myFooter 
 
 #myFooter .social-networks a {
     font-size: 32px;
@@ -70,10 +75,12 @@
 
 #myFooter .social-networks a:hover {
     text-decoration: none;
+    
 }
 
 #myFooter .facebook:hover {
     color: #0077e2;
+    
 }
 
 #myFooter .google:hover {
@@ -86,8 +93,8 @@
 
 #myFooter .btn {
     color: white;
-    
     border-radius: 20px;
+    font-weight: 700;
     border: none;
     width: 100%;
     display: block;
@@ -127,4 +134,23 @@ body{
 #myFooter{
    flex: 0 0 auto;
    -webkit-flex: 0 0 auto;
+}
+
+#myFooter .btn-submit{
+    border-radius:25px;
+    margin-top: 10px;
+    background-color: royalblue;
+    border: royalblue;
+    padding: 10px;
+    max-width: 100%;
+    width: 100%;
+    font-weight: 600;
+    transition: 0.5s;
+    color: snow;
+}
+
+#myFooter .btn-submit:hover{
+    background-color: white;
+    transition: 0.5s;
+    color: royalblue;
 }
