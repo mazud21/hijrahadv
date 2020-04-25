@@ -4,3 +4,5 @@
 
 <!-- Custom scripts for this template -->
 <script src="<?= base_url(); ?>assets/js/clean-blog.min.js"></script>
+
+<script src="<?= base_url(); ?>assets/js/back_top.js"></script>

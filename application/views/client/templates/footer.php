@@ -2,6 +2,11 @@
 <a href="" class="float" target="_blank">
     <i class="fa fa-whatsapp my-float"></i>
 </a>
+
+<a href="#" id="button">
+    <i class="fa fa-arrow-circle-up my-float"></i>
+</a>
+
 <hr>
 <footer id="myFooter">
         <div class="container">
