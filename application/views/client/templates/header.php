@@ -1,4 +1,4 @@
-<header class="masthead" style="background-image: url('<?= base_url(); ?>/assets/img/home-bg.jpg')">
+<header class="masthead" style="background-image: url('https://images3.alphacoders.com/112/thumb-1920-112487.jpg">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">

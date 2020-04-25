@@ -8,13 +8,7 @@ body{
     color:#212529;
     font-family:Lora,'Quicksand',serif;
 
-    background-image: url("https://wallpaperaccess.com/full/267434.jpg");
-    /* Add the blur effect */
-    
-    
-    background-size: 100%;
-    background-position: center;
-    
+    background-color: lightgray;
 }
 
 p{
@@ -178,7 +172,7 @@ img::-moz-selection{
 }
 
 header.masthead{
-    margin-bottom:50px;background:no-repeat center center;
+    background:no-repeat center center;
     background-color:#868e96;
     background-attachment:scroll;
     position:relative;
@@ -192,17 +186,17 @@ header.masthead .overlay{
     height:100%;
     width:100%;
     background-color:#212529;
-    opacity:.5
+    opacity: 0.5;
 }
 
 header.masthead .page-heading,header.masthead .post-heading,header.masthead .site-heading{
-    padding:200px 0 150px;
+    padding:175px 0 150px;
     color:#fff
 }
 
 @media only screen and (min-width:768px){
     header.masthead .page-heading,header.masthead .post-heading,header.masthead .site-heading{
-        padding:200px 0
+        padding:175px 0
     }
 }
 
@@ -399,7 +393,7 @@ header.masthead .page-heading .subheading,header.masthead .site-heading .subhead
     }
 
     .float{
-        position:fixed;
+        position: fixed;
         width:60px;
         height:60px;
         bottom:90px;
@@ -420,4 +414,22 @@ header.masthead .page-heading .subheading,header.masthead .site-heading .subhead
 
     .my-float{
         margin-top:16px;
+    }
+
+    .blur{
+        background-image: url("https://www.itl.cat/pngfile/big/0-194_free-desktop-wallpaper-hd-download-pixelstalk-banff-wallpaper.jpg");
+        /* Add the blur effect */
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .home{
+        background-image: url("https://i.imgur.com/eZPBRgH.jpg");
+        height:100%;
+        width:100%;
+        background-color:#212529;
+        opacity: 0.5;
     }
