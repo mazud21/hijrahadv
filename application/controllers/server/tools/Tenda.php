@@ -4,7 +4,8 @@ class Tenda extends CI_Controller{
 
     public function __construct(){
         parent::__construct();
-        $this->load->model('server/Tenda_model');
+        $this->load->model('server/tools/Tenda_model');
+        $this->load->model('server/tools/Tools_model');
         $this->load->library('form_validation');
         $this->load->library('session');
 
@@ -14,19 +15,20 @@ class Tenda extends CI_Controller{
 
     public function index(){
         $data['judul'] = 'Daftar Tenda';
-        $data['tenda'] = $this->Tenda_model->getAllTenda();
+        $data['tools'] = $this->Tenda_model->getAllTenda();
         
-        $this->load->view('server/tenda/index', $data);
+        $this->load->view('server/tools/tenda/index', $data);
     }
 
     public function tambah(){
         $data = array();
         $data['judul'] = 'Tambah Tenda';
+        $data['jenis'] = $this->Tools_model->getAllJenis();
+        $data['cap'] = $this->Tools_model->getCap();
 
         $this->form_validation->set_rules('nama', 'Nama Tenda', 'required');
         $this->form_validation->set_rules('merk', 'Brand', 'required');
         //$this->form_validation->set_rules('gambar', 'Gambar', 'required');
-        $this->form_validation->set_rules('capacity', 'Kapasitas', 'required');
         $this->form_validation->set_rules('layer', 'Layer', 'required');
         $this->form_validation->set_rules('color', 'Warna', 'required');
         $this->form_validation->set_rules('flysheet', 'Flysheet', 'required');
@@ -36,9 +38,11 @@ class Tenda extends CI_Controller{
         $this->form_validation->set_rules('size', 'Dimensi', 'required');
         $this->form_validation->set_rules('weight', 'Berat', 'required');
         $this->form_validation->set_rules('biaya', 'Biaya Sewa', 'required');
+        $this->form_validation->set_rules('id_jenis', 'Jenis Barang', 'required');
+        $this->form_validation->set_rules('id_cap', 'Kapasitas', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('server/tenda/tambah',$data);
+            $this->load->view('server/tools/tenda/tambah',$data);
             
         }else if($this->input->post('tambah')){ 
 
@@ -48,7 +52,7 @@ class Tenda extends CI_Controller{
                 
                 $this->Tenda_model->tambahDataTenda($upload);
                 
-                redirect('server/tenda');
+                redirect('server/tools/tenda');
             }else{
                 $data['message'] = $upload['error'];
             }
@@ -56,15 +60,14 @@ class Tenda extends CI_Controller{
         
     }
 
-    public function edit($id_tenda){
-        $kondisi = array('id_tenda' => $id_tenda );
+    public function edit($id_tool){
+        $kondisi = array('id_tool' => $id_tool );
 
         $data['tent'] = $this->Tenda_model->get_by_id($kondisi);
         
         $this->form_validation->set_rules('nama', 'Nama Tenda', 'required');
         $this->form_validation->set_rules('merk', 'Brand', 'required');
         //$this->form_validation->set_rules('gambar', 'Gambar', 'required');
-        $this->form_validation->set_rules('capacity', 'Kapasitas', 'required');
         $this->form_validation->set_rules('layer', 'Layer', 'required');
         $this->form_validation->set_rules('color', 'Warna', 'required');
         $this->form_validation->set_rules('flysheet', 'Flysheet', 'required');
@@ -74,9 +77,11 @@ class Tenda extends CI_Controller{
         $this->form_validation->set_rules('size', 'Dimensi', 'required');
         $this->form_validation->set_rules('weight', 'Berat', 'required');
         $this->form_validation->set_rules('biaya', 'Biaya Sewa', 'required');
+        $this->form_validation->set_rules('id_jenis', 'Jenis Barang', 'required');
+        $this->form_validation->set_rules('id_cap', 'Kapasitas', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('server/tenda/ubah',$data);
+            $this->load->view('server/tools/tenda/ubah',$data);
         }
     
     }
@@ -85,7 +90,7 @@ class Tenda extends CI_Controller{
 
         $this->load->library('upload'); 
 
-        $id_tenda   = $this->input->post('id_tenda');
+        $id_tool   = $this->input->post('id_tool');
         $nama = $this->input->post('nama');
         $merk = $this->input->post('merk');
         $capacity = $this->input->post('capacity');
@@ -101,7 +106,7 @@ class Tenda extends CI_Controller{
 
         $path = './images/';
 
-        $kondisi = array('id_tenda' => $id_tenda );
+        $kondisi = array('id_tool' => $id_tool );
 
         $config['upload_path'] = './images/';
         $config['allowed_types'] = 'jpg|png|jpeg|gif';
@@ -132,10 +137,10 @@ class Tenda extends CI_Controller{
                 @unlink($path.$this->input->post('img_old'));
 
                 $this->Tenda_model->update($data,$kondisi);
-                redirect('server/tenda');
+                redirect('server/tools/tenda');
                 }else {
                 die("gagal update");
-                redirect('server/tenda');
+                redirect('server/tools/tenda');
                 }
             }else {
             //no image update
@@ -155,19 +160,19 @@ class Tenda extends CI_Controller{
                 'biaya'     => $biaya,
             );
             $this->Tenda_model->update($data,$kondisi);
-            redirect('server/tenda');
+            redirect('server/tools/tenda');
         }
     }
 
-    public function hapus($id_tenda){
-        $this->Tenda_model->hapusDataTenda($id_tenda);
+    public function hapus($id_tool){
+        $this->Tenda_model->hapusDataTenda($id_tool);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('server/tenda');
+        redirect('server/tools/tenda');
     }
 
-    public function detail($id_tenda){
+    public function detail($id_tool){
         $data['judul'] = 'Detail Data Tenda';
-        $data['tent'] = $this->Tenda_model->getTendaById($id_tenda);
-        $this->load->view('server/tenda/detail', $data);
+        $data['tent'] = $this->Tenda_model->getTendaById($id_tool);
+        $this->load->view('server/tools/tenda/detail', $data);
     }
 }

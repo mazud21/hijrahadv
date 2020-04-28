@@ -34,7 +34,7 @@
             <!-- CONTENT -->
             <div class="card-group">
                 <div class="card text-white bg-info border border-dark m-1 text">
-                    <a class="text-white" href="<?= base_url(); ?>server/tenda">
+                    <a class="text-white" href="<?= base_url(); ?>server/tools/tenda">
                         <img class="card-img-top" src="<?= base_url(); ?>/images/admin/tenda.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h7 class="card-title">Tenda</h7>
@@ -42,11 +42,12 @@
                     </a>
                 </div>
                 <div class="card text-white bg-info border border-dark m-1">
-                    <img class="card-img-top" src="<?= base_url(); ?>/images/admin/carrier.jpg" alt="Card image cap">
-                    <div class="card-body">
-                    <h7 class="card-title">Carrier</h7>
-                    
-                    </div>
+                    <a class="text-white" href="<?= base_url(); ?>server/tools/carrier">
+                        <img class="card-img-top" src="<?= base_url(); ?>/images/admin/carrier.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h7 class="card-title">Carrier</h7>
+                        </div>
+                    </a>
                 </div>
                 <div class="card text-white bg-info border border-dark m-1">
                     <img class="card-img-top" src="<?= base_url(); ?>/images/admin/sb.jpg" alt="Card image cap">

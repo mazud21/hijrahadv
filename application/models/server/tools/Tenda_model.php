@@ -2,7 +2,14 @@
 
 class Tenda_model extends CI_model {
     public function getAllTenda(){
-        return $this->db->get('tenda')->result_array();
+        $this->db->select('*');
+        $this->db->from('tools t');
+        $this->db->join('jenis j','j.id_jenis=t.id_jenis');
+        $this->db->join('capacity c','c.id_cap=t.id_cap');
+        $this->db->where('j.desc_','Tenda');
+        $this->db->order_by('id_tool','ASC');
+        $query = $this->db->get();
+        return $query->result_array();
     }
 
     public function upload(){
@@ -32,7 +39,7 @@ class Tenda_model extends CI_model {
             $data = array(
                 $nama       = $this->input->post('nama'),
                 $merk       = $this->input->post('merk'),
-                $capacity   = $this->input->post('capacity'),
+                
                 $layer      = $this->input->post('layer'),
                 $color      = $this->input->post('color'),
                 $flysheet   = $this->input->post('flysheet'),
@@ -41,12 +48,14 @@ class Tenda_model extends CI_model {
                 $poles      = $this->input->post('poles'),
                 $size       = $this->input->post('size'),
                 $weight     = $this->input->post('weight'),
-                $biaya      = $this->input->post('biaya')
+                $biaya      = $this->input->post('biaya'),
+                $id_jenis   = $this->input->post('id_jenis'),
+                $id_cap   = $this->input->post('id_cap')
             );
     
-            $this->db->insert('tenda', $data);
+            $this->db->insert('tools', $data);
             
-            redirect('server/tenda');
+            redirect('server/tools/tenda');
         }
 
     }
@@ -57,7 +66,7 @@ class Tenda_model extends CI_model {
             'nama'       => $this->input->post('nama'),
             'merk'       => $this->input->post('merk'),
             'gambar'     => $upload['file']['file_name'],
-            'capacity'   => $this->input->post('capacity'),
+            
             'layer'      => $this->input->post('layer'),
             'color'      => $this->input->post('color'),
             'flysheet'   => $this->input->post('flysheet'),
@@ -66,31 +75,33 @@ class Tenda_model extends CI_model {
             'poles'      => $this->input->post('poles'),
             'size'       => $this->input->post('size'),
             'weight'     => $this->input->post('weight'),
-            'biaya'      => $this->input->post('biaya')
+            'biaya'      => $this->input->post('biaya'),
+            'id_jenis'   => $this->input->post('id_jenis'),
+            'id_cap'   => $this->input->post('id_cap')
         );
 
-        $this->db->insert('tenda', $data);
+        $this->db->insert('tools', $data);
     }
 
     public function get_by_id($kondisi){
-        $this->db->from('tenda');
+        $this->db->from('tools');
         $this->db->where($kondisi);
         $query = $this->db->get();
     return $query->row();
     }
 
     public function update($data,$kondisi){
-        $this->db->update('tenda',$data,$kondisi);
+        $this->db->update('tools',$data,$kondisi);
     return TRUE;
     }
 
-    public function hapusDataTenda($id_tenda){
+    public function hapusDataTenda($id_tool){
         // $this->db->where('id', $id);
-        $this->db->delete('tenda', ['id_tenda' => $id_tenda]);
+        $this->db->delete('tools', ['id_tool' => $id_tool]);
     }
 
-    public function getTendaById($id_tenda){
-        return $this->db->get_where('tenda', ['id_tenda' => $id_tenda])->row_array();
+    public function getTendaById($id_tool){
+        return $this->db->get_where('tools', ['id_tool' => $id_tool])->row_array();
     }
 
     public function cariDataTenda(){
