@@ -59,7 +59,16 @@
                                     <div class="card-body">
                                         <?php echo form_open("server/tools/tenda/tambah", array('enctype'=>'multipart/form-data')); ?>
                                         <form action="" method="post">
-                                            
+                                        
+                                            <div class="col-sm centered">
+                                                <div class="form-group">                            
+                                                    <label for="gambar">Gambar</label>
+                                                    <img class="rounded mx-auto d-block" id='gambar' name='gambar' src="https://img.icons8.com/material/96/000000/image.png" width="300"/>
+                                                    <input type="file" name="gambar" class="form-control-file" id="gambar" onchange='readURL(event)'>
+                                                    <small class="form-text text-danger"><?= form_error('gambar'); ?></small>
+                                                </div>
+                                            </div>
+
                                         <div class="row">
                                             <div class="col-sm">
                                                 <div class="form-group">
@@ -75,16 +84,8 @@
                                                     <small class="form-text text-danger"><?= form_error('merk'); ?></small>
                                                 </div>
                                             </div>
+                                            
                                             <div class="col-sm">
-                                                <div class="form-group">                            
-                                                    <label for="gambar">Gambar</label>
-                                                    <img class="rounded mx-auto d-block" id='gambar' name='gambar' src="https://cdn3.iconfinder.com/data/icons/misc-file-formats/512/20-512.png" width="200">
-                                                    <input type="file" name="gambar" class="form-control" id="gambar" onchange='readURL(event)'>
-                                                    <small class="form-text text-danger"><?= form_error('gambar'); ?></small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
                                                 <div class="form-group">
                                                     <label for="jenis">Jenis</label>
                                                     <select name="id_jenis" id="id_jenis" class="form-control">
@@ -97,6 +98,7 @@
                                                     <small class="form-text text-danger"><?= form_error('jenis'); ?></small>
                                                 </div>
                                             </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col-sm">
                                                 <div class="form-group">
@@ -166,9 +168,16 @@
                                                 </div>
                                             <div class="col-sm">
                                                 <div class="form-group">
-                                                    <label for="weight">Berat</label>
-                                                    <input type="text" name="weight" class="form-control" id="weight" placeholder="-" value="1">
+                                                    <label for="weight">Berat(Kg)</label>
+                                                    <input type="number" min="1" name="weight" class="form-control" id="weight" placeholder="-" value="1">
                                                     <small class="form-text text-danger"><?= form_error('weight'); ?></small>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="stock_">Stock</label>
+                                                    <input type="number" min="1" name="stock_" class="form-control" id="stock_" placeholder="-" value="1">
+                                                    <small class="form-text text-danger"><?= form_error('stock_'); ?></small>
                                                 </div>
                                             </div>
                                         </div>

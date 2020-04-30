@@ -81,16 +81,16 @@
                                                 <td><?= $tool['merk']; ?></td>
                                                 <td><img src="<?= base_url("images/".$tool['gambar']); ?>" alt="image.png" width="200px"></td>
                                                 <td>
-                                                    <a href="<?= base_url(); ?>server/tools/tenda/hapus/<?= $tool['id_tool']; ?>">
-                                                        <button class="btn"><i class="far fa-trash-alt fa-2x" style="color:red;"></i>
+                                                    <a data-toggle="modal" data-target="#detail_modal<?= $tool['id_tool']; ?>">
+                                                        <button class="btn"><i class="far fa-list-alt fa-2x" style="color:green;"></i>
                                                         </button>
                                                     </a>
                                                     <a href="<?= base_url(); ?>server/tools/tenda/edit/<?= $tool['id_tool']; ?>">
                                                         <button class="btn"><i class="far fa-edit fa-2x" style="color:blue;"></i>
                                                         </button>
                                                     </a>
-                                                    <a data-toggle="modal" data-target="#detail_modal<?= $tool['id_tool']; ?>">
-                                                        <button class="btn"><i class="far fa-list-alt fa-2x" style="color:green;"></i>
+                                                    <a href="<?= base_url(); ?>server/tools/tenda/hapus/<?= $tool['id_tool']; ?>">
+                                                        <button class="btn"><i class="far fa-trash-alt fa-2x" style="color:red;"></i>
                                                         </button>
                                                     </a>
                                                         <!-- Modal Popup untuk Detail-->

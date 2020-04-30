@@ -37,6 +37,7 @@ class Tenda extends CI_Controller{
         $this->form_validation->set_rules('poles', 'Poles', 'required');
         $this->form_validation->set_rules('size', 'Dimensi', 'required');
         $this->form_validation->set_rules('weight', 'Berat', 'required');
+        $this->form_validation->set_rules('stock_', 'Stock', 'required');
         $this->form_validation->set_rules('biaya', 'Biaya Sewa', 'required');
         $this->form_validation->set_rules('id_jenis', 'Jenis Barang', 'required');
         $this->form_validation->set_rules('id_cap', 'Kapasitas', 'required');

@@ -39,7 +39,6 @@ class Tenda_model extends CI_model {
             $data = array(
                 $nama       = $this->input->post('nama'),
                 $merk       = $this->input->post('merk'),
-                
                 $layer      = $this->input->post('layer'),
                 $color      = $this->input->post('color'),
                 $flysheet   = $this->input->post('flysheet'),
@@ -48,6 +47,7 @@ class Tenda_model extends CI_model {
                 $poles      = $this->input->post('poles'),
                 $size       = $this->input->post('size'),
                 $weight     = $this->input->post('weight'),
+                $stock_     = $this->input->post('stock_'),
                 $biaya      = $this->input->post('biaya'),
                 $id_jenis   = $this->input->post('id_jenis'),
                 $id_cap   = $this->input->post('id_cap')
@@ -66,7 +66,6 @@ class Tenda_model extends CI_model {
             'nama'       => $this->input->post('nama'),
             'merk'       => $this->input->post('merk'),
             'gambar'     => $upload['file']['file_name'],
-            
             'layer'      => $this->input->post('layer'),
             'color'      => $this->input->post('color'),
             'flysheet'   => $this->input->post('flysheet'),
@@ -75,6 +74,7 @@ class Tenda_model extends CI_model {
             'poles'      => $this->input->post('poles'),
             'size'       => $this->input->post('size'),
             'weight'     => $this->input->post('weight'),
+            'stock_'     => $this->input->post('stock_'),
             'biaya'      => $this->input->post('biaya'),
             'id_jenis'   => $this->input->post('id_jenis'),
             'id_cap'   => $this->input->post('id_cap')
@@ -108,6 +108,6 @@ class Tenda_model extends CI_model {
         $keyword = $this->input->post('keyword', true);
         $this->db->like('nama', $keyword);
         $this->db->or_like('merk', $keyword);
-        return $this->db->get('tenda')->result_array();
+        return $this->db->get('tools')->result_array();
     }
 }

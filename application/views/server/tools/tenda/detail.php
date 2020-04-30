@@ -73,6 +73,10 @@
                                                             <?= $tool['weight']; ?>
                                                         </div>
                                                         <div class="form-group">
+                                                            <label for=""><h6 class="card-subtitle text-muted">Stock</h6></label><br>
+                                                            <?= $tool['stock_']; ?>
+                                                        </div>
+                                                        <div class="form-group">
                                                             <label for=""><h6 class="card-subtitle text-muted">Biaya Sewa</h6></label><br>
                                                             <?= $tool['biaya']; ?>
                                                         </div>
