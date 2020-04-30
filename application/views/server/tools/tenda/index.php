@@ -33,8 +33,8 @@
                         </ol>
             <!-- CONTENT -->
             <div class="card mb-4">
-                            <div class="card-body">
-                                <p class="mb-0">
+                <div class="card-body">
+                    <p class="mb-0">
                                     <div class="row mt-3">
                                         <div class="col-md-6">
                                         <div class="row mt-3">
@@ -54,26 +54,23 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mt-3">
-                                        <div class="col-md-6">
-                                            <h3>Daftar tools</h3>
-                                            <?php if (empty($tools)) : ?>
-                                                <div class="alert alert-danger" role="alert">
-                                                data tools tidak ditemukan.
-                                                </div>
-                                            <?php endif; ?>
-                                            
-                                        <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                        <table class="table table-bordered table-striped mb-0" id="dtVerticalScrollExample">
-                                            <thead>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <h3>Daftar tools</h3>
+                                    <?php if (empty($tools)) : ?>
+                                        <div class="alert alert-danger" role="alert">
+                                            data tools tidak ditemukan.
+                                        </div>
+                                    <?php endif; ?>
+
+                                        <table class="table table-bordered table-striped text-center" id="dtVerticalScrollExample">
+                                            <thead class="table-dark">
                                             <tr>
                                                 <th scope="col">Id tools</th>
                                                 <th scope="col">Nama tools</th>
                                                 <th scope="col">Brand tools</th>
                                                 <th scope="col">Gambar tools</th>
-                                                <th scope="col">Jenis tools</th>
-                                                <th scope="col">Kapasitas</th>
-                                                <th scope="col">Action</th>
+                                                <th scope="col">Manage</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -83,47 +80,39 @@
                                                 <td><?= $tool['nama']; ?></td>
                                                 <td><?= $tool['merk']; ?></td>
                                                 <td><img src="<?= base_url("images/".$tool['gambar']); ?>" alt="image.png" width="200px"></td>
-                                                <td><?= $tool['desc_']; ?></td>
-                                                <td><?= $tool['cap']; ?></td>
-                                                <td><a href="<?= base_url(); ?>server/tools/hapus/<?= $tool['id_tool']; ?>"
-                                                                class="badge badge-danger float-right tombol-hapus">hapus</a>
-                                                            <a href="<?= base_url(); ?>server/tools/edit/<?= $tool['id_tool']; ?>"
-                                                                class="badge badge-success float-right">ubah</a>
-                                                            <a href="<?= base_url(); ?>server/tools/detail/<?= $tool['id_tool']; ?>"
-                                                                class="badge badge-primary float-right">detail</a></td>
+                                                <td>
+                                                    <a href="<?= base_url(); ?>server/tools/tenda/hapus/<?= $tool['id_tool']; ?>">
+                                                        <button class="btn"><i class="far fa-trash-alt fa-2x" style="color:red;"></i>
+                                                        </button>
+                                                    </a>
+                                                    <a href="<?= base_url(); ?>server/tools/tenda/edit/<?= $tool['id_tool']; ?>">
+                                                        <button class="btn"><i class="far fa-edit fa-2x" style="color:blue;"></i>
+                                                        </button>
+                                                    </a>
+                                                    <a data-toggle="modal" data-target="#detail_modal<?= $tool['id_tool']; ?>">
+                                                        <button class="btn"><i class="far fa-list-alt fa-2x" style="color:green;"></i>
+                                                        </button>
+                                                    </a>
+                                                        <!-- Modal Popup untuk Detail-->
+                                                        <?php $this->load->view("server/tools/tenda/detail.php") ?>
+                                                </td>
                                             </tr>
                                             <?php endforeach; ?>
                                             </tbody>
                                             
                                         </table>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
-
-                                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-lg">
-                                                    <div class="modal-content">
-                                                        <div class="card mb-4">
-                                                        <div class="card-body">
-                                                            <h1>Coba Modal</h1>
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                                        </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                            
-                                        </div>
-                                    </div>
-                                </p>
                             </div>
                         </div>
+                    </p>
+                </div>                
+            </div>            
             <!-- CONTENT END -->
                     </div>
                 </main>
 
                 <!-- footer -->
                 <footer class="py-4 bg-light mt-auto">
-                    <?php $this->load->view("server/templates/footer.php") ?>    
+                    <?php $this->load->view("server/templates/footer.php") ?>
                 </footer>
                 <!-- footer END -->
             </div>
