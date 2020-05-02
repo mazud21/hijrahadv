@@ -91,7 +91,7 @@
                                                     <select name="id_jenis" id="id_jenis" class="form-control">
                                                         <?php 
                                                         foreach($jenis as $row){ 
-                                                            echo '<option value="'.$row->id_jenis.'">'.$row->desc_.'</option>';
+                                                            echo '<option value="'.$row['id_jenis'].'">'.$row['desc_'].'</option>';
                                                         }
                                                         ?>
                                                     </select>
@@ -106,7 +106,7 @@
                                                     <select name="id_cap" id="id_cap" class="form-control">
                                                         <?php 
                                                         foreach($cap as $row){ 
-                                                            echo '<option value="'.$row->id_cap.'">'.$row->cap.'</option>';
+                                                            echo '<option value="'.$row['id_cap'].'">'.$row['cap'].'</option>';
                                                         }
                                                         ?>
                                                     </select>

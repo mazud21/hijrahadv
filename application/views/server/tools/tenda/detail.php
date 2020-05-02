@@ -12,7 +12,7 @@
                                 <p class="mb-0">
                                 
                                     <div class="row mt-3">
-                                        <div class="col-md-6">
+                                        <div class="col">
 
                                                 <div class="card-body">
                                                     <div class="form-group">
@@ -30,7 +30,7 @@
                                                     <div class="form-group">
                                                             <label for=""><h6 class="card-subtitle text-muted">Foto Tenda</h6></label><br>
                                                             <img src="<?= base_url('./images/'.$tool['gambar'])?>" 
-                                                            width="200px" height="125px">
+                                                            width="200px">
                                                         </div>
                                                     <div class="form-group">
                                                         <label for=""><h6 class="card-subtitle text-muted">Jenis</h6></label><br>
@@ -38,7 +38,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                             <label for=""><h6 class="card-subtitle text-muted">Kapasitas</h6></label><br>
-                                                            <?= $tool['id_cap']; ?>
+                                                            <?= $tool['cap']; ?>
                                                         </div>
                                                     <div class="form-group">
                                                             <label for=""><h6 class="card-subtitle text-muted">Layer</h6></label><br>

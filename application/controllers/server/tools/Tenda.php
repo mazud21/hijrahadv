@@ -16,14 +16,16 @@ class Tenda extends CI_Controller{
     public function index(){
         $data['judul'] = 'Daftar Tenda';
         $data['tools'] = $this->Tenda_model->getAllTenda();
-        
+        $data['jenis'] = $this->Tools_model->getJenis();
+        $data['cap'] = $this->Tools_model->getCap();
+
         $this->load->view('server/tools/tenda/index', $data);
     }
 
     public function tambah(){
         $data = array();
         $data['judul'] = 'Tambah Tenda';
-        $data['jenis'] = $this->Tools_model->getAllJenis();
+        $data['jenis'] = $this->Tools_model->getJenis();
         $data['cap'] = $this->Tools_model->getCap();
 
         $this->form_validation->set_rules('nama', 'Nama Tenda', 'required');
@@ -63,9 +65,12 @@ class Tenda extends CI_Controller{
 
     public function edit($id_tool){
         $kondisi = array('id_tool' => $id_tool );
-
-        $data['tent'] = $this->Tenda_model->get_by_id($kondisi);
         
+        $data['tool'] = $this->Tenda_model->get_by_id($kondisi);
+        $data['jenis'] = $this->Tools_model->getJenis();
+        $data['capct'] = $this->Tools_model->getCap();
+        $data['ca'] = ['1','2','4','6','8'];
+
         $this->form_validation->set_rules('nama', 'Nama Tenda', 'required');
         $this->form_validation->set_rules('merk', 'Brand', 'required');
         //$this->form_validation->set_rules('gambar', 'Gambar', 'required');
@@ -78,6 +83,7 @@ class Tenda extends CI_Controller{
         $this->form_validation->set_rules('size', 'Dimensi', 'required');
         $this->form_validation->set_rules('weight', 'Berat', 'required');
         $this->form_validation->set_rules('biaya', 'Biaya Sewa', 'required');
+        
         $this->form_validation->set_rules('id_jenis', 'Jenis Barang', 'required');
         $this->form_validation->set_rules('id_cap', 'Kapasitas', 'required');
 
@@ -89,21 +95,24 @@ class Tenda extends CI_Controller{
 
     public function updatedata(){
 
-        $this->load->library('upload'); 
+        $this->load->library('upload');
 
-        $id_tool   = $this->input->post('id_tool');
-        $nama = $this->input->post('nama');
-        $merk = $this->input->post('merk');
-        $capacity = $this->input->post('capacity');
-        $layer = $this->input->post('layer');
-        $color = $this->input->post('color');
-        $flysheet = $this->input->post('flysheet');
-        $inner_ = $this->input->post('inner_');
-        $floor = $this->input->post('floor');
-        $poles = $this->input->post('poles');
-        $size = $this->input->post('size');
-        $weight = $this->input->post('weight');
-        $biaya = $this->input->post('biaya');
+        $id_tool    = $this->input->post('id_tool');
+        $nama       = $this->input->post('nama');
+        $merk       = $this->input->post('merk');
+        
+        $layer      = $this->input->post('layer');
+        $color      = $this->input->post('color');
+        $flysheet   = $this->input->post('flysheet');
+        $inner_     = $this->input->post('inner_');
+        $floor      = $this->input->post('floor');
+        $poles      = $this->input->post('poles');
+        $size       = $this->input->post('size');
+        $weight     = $this->input->post('weight');
+        $biaya      = $this->input->post('biaya');
+        
+        $id_jenis   = $this->input->post('id_jenis');
+        $id_cap     = $this->input->post('id_cap');
 
         $path = './images/';
 
@@ -112,18 +121,17 @@ class Tenda extends CI_Controller{
         $config['upload_path'] = './images/';
         $config['allowed_types'] = 'jpg|png|jpeg|gif';
         $config['max_size'] = '2048';
-        $config['file_name'] = $_FILES['img_new']['name'];
+        $config['file_name'] = $_FILES['gambar']['name'];
 
         $this->upload->initialize($config);
 
-        if (!empty($_FILES['img_new']['name'])) {
-            if ( $this->upload->do_upload('img_new') ) {
+        if (!empty($_FILES['gambar']['name'])) {
+            if ( $this->upload->do_upload('gambar') ) {
                 $gambar = $this->upload->data();
                 $data = array(
                         'nama'      => $nama,
                         'merk'      => $merk,
                         'gambar'    => $gambar['file_name'],
-                        'capacity'  => $capacity,
                         'layer'     => $layer,
                         'color'     => $color,
                         'flysheet'  => $flysheet,
@@ -133,6 +141,8 @@ class Tenda extends CI_Controller{
                         'size'      => $size,
                         'weight'    => $weight,
                         'biaya'     => $biaya,
+                        'id_jenis'  => $id_jenis,
+                        'id_cap'    => $id_cap,
                         );
                 // replace image
                 @unlink($path.$this->input->post('img_old'));
@@ -141,15 +151,13 @@ class Tenda extends CI_Controller{
                 redirect('server/tools/tenda');
                 }else {
                 die("gagal update");
-                redirect('server/tools/tenda');
+                //redirect('server/tools/tenda');
                 }
             }else {
             //no image update
             $data = array(
                 'nama'      => $nama,
                 'merk'      => $merk,
-                //'gambar'    => $gambar['file_name'],
-                'capacity'  => $capacity,
                 'layer'     => $layer,
                 'color'     => $color,
                 'flysheet'  => $flysheet,
@@ -159,6 +167,8 @@ class Tenda extends CI_Controller{
                 'size'      => $size,
                 'weight'    => $weight,
                 'biaya'     => $biaya,
+                'id_jenis'  => $id_jenis,
+                'id_cap'    => $id_cap,
             );
             $this->Tenda_model->update($data,$kondisi);
             redirect('server/tools/tenda');
@@ -173,7 +183,7 @@ class Tenda extends CI_Controller{
 
     public function detail($id_tool){
         $data['judul'] = 'Detail Data Tenda';
-        $data['tent'] = $this->Tenda_model->getTendaById($id_tool);
+        $data['tools'] = $this->Tenda_model->getTendaById($id_tool);
         $this->load->view('server/tools/tenda/detail', $data);
     }
 }
