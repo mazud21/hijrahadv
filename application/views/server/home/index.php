@@ -29,7 +29,7 @@
                         <div class="mt-3"></div>
                         
                         <ol class="breadcrumb mb-1">
-                            <li class="breadcrumb-item active"><a href="<?= base_url(); ?>"><?= $judul ?></a></li>
+                            <li class="breadcrumb-item active"><a href="<?= base_url(); ?>server/home"><?= $judul ?></a></li>
                         </ol>
             <!-- CONTENT -->
             <div class="card-group">
