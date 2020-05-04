@@ -39,8 +39,11 @@
                                         <div class="col-md-6">
                                         <div class="row mt-3">
                                             <div class="col-md-6">
-                                                <a href="<?= base_url(); ?>server/tools/tenda/tambah" class="btn btn-primary">Tambah
-                                                    Data tagihan</a>
+                                                <a data-toggle="modal" data-target="#tambah_modal" class="btn btn-primary text-white">
+                                                Tambah Data tagihan
+                                                </a>
+                                                <!-- Modal Popup untuk Tambah-->
+                                                <?php $this->load->view("server/tools/tenda/tambah.php") ?>
                                             </div>
                                         </div>
                                             <form action="" method="post">
@@ -84,11 +87,9 @@
                                                     <a data-toggle="modal" data-target="#detail_modal<?= $tool['id_tool']; ?>">
                                                         <button class="btn"><i class="far fa-list-alt fa-2x" style="color:green;"></i>
                                                         </button>
+                                                        <!-- Modal Popup untuk Detail-->
+                                                        <?php $this->load->view("server/tools/tenda/detail.php") ?>
                                                     </a>
-                                                    <!--a href="<?= base_url(); ?>server/tools/tenda/edit/<?= $tool['id_tool']; ?>">
-                                                        <button class="btn"><i class="far fa-edit fa-2x" style="color:blue;"></i>
-                                                        </button>
-                                                    </a-->
                                                     <a data-toggle="modal" data-target="#edit_modal<?= $tool['id_tool']; ?>">
                                                         <button class="btn"><i class="far fa-edit fa-2x" style="color:blue;"></i>
                                                         </button>
@@ -100,8 +101,6 @@
                                                         <button class="btn"><i class="far fa-trash-alt fa-2x" style="color:red;"></i>
                                                         </button>
                                                     </a>
-                                                        <!-- Modal Popup untuk Detail-->
-                                                        <?php $this->load->view("server/tools/tenda/detail.php") ?>
                                                 </td>
                                             </tr>
                                             <?php endforeach; ?>

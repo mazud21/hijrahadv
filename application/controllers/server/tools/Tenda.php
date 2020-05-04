@@ -25,8 +25,6 @@ class Tenda extends CI_Controller{
     public function tambah(){
         $data = array();
         $data['judul'] = 'Tambah Tenda';
-        $data['jenis'] = $this->Tools_model->getJenis();
-        $data['cap'] = $this->Tools_model->getCap();
 
         $this->form_validation->set_rules('nama', 'Nama Tenda', 'required');
         $this->form_validation->set_rules('merk', 'Brand', 'required');

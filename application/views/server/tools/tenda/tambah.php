@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <title>Tenda|Hijrah Adventure</title>
-        <?php $this->load->view("server/templates/header.php") ?>
-        <script type="text/javascript" src="<?= base_url(); ?>assets/ckeditor/ckeditor.js"></script>
 
         <script>
             var readURL= function(event) {
@@ -18,34 +12,14 @@
             reader.readAsDataURL(input.files[0]);
         };
         </script>
-    </head>
 
-    <body>
-    <?php $this->load->view("server/templates/head_nav.php") ?>
-
-    <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    
-                <!-- menu -->
-                    <?php $this->load->view("server/templates/side_menu.php") ?>
-                <!-- menu END -->
-
-                <!-- side footer -->
-                    <?php $this->load->view("server/templates/side_footer.php") ?>
-                <!-- side footer END-->
-                </nav>
+<div id="tambah_modal" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                
             </div>
-
-            <div id="layoutSidenav_content">
-
-                <main>
-                    <div class="container-fluid">
-                        <h1 class="mt-4"><?= $judul ?></h1>
-                        
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active"><a href="<?= base_url(); ?>"><?= $judul ?></a></li>
-                        </ol>
+                <div class="modal-body">
                         <!-- CONTENT -->
                         <div class="container">
                             <div style="color: red;"><i><?php echo (isset($message))? $message : ""; ?></i></div>
@@ -195,18 +169,8 @@
                             </div>
                         </div>
                         <!-- CONTENT END -->
-                    </div>
-                </main>
-
-                <!-- footer -->
-                <footer class="py-4 bg-light mt-auto">
-                    <?php $this->load->view("server/templates/footer.php") ?>    
-                </footer>
-                <!-- footer END -->
-            </div>
+                        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+                </div>
         </div>
-        <!-- scripts -->
-        <?php $this->load->view("server/templates/script_js.php") ?>
-        <!-- scripts END -->
-    </body>
-</html>
+    </div>
+</div>
