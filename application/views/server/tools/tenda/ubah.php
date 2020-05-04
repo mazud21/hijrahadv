@@ -35,10 +35,8 @@
                                             <?php echo form_open("server/tools/tenda/updatedata", array('enctype'=>'multipart/form-data')); ?>
                                             <form action="" method="post">
                                                 
-                                                    <!-- file lama -->
-                                                    <!--input type="hidden" name="img_old" value="<?=$tool['gambar']?>"-->
-                                                    <!-- ID -->
-                                                    <input type="hidden" name="id_tool" value="<?=$tool['id_tool']?>">
+                                                <!-- ID -->
+                                                <input type="hidden" name="id_tool" value="<?=$tool['id_tool']?>">
 
                                             <div class="col-sm">
                                                 <div class="form-group">                            
@@ -71,28 +69,19 @@
                                             </div>
 
                                             <div class="col-sm">
-                                                    <div class="form-group">
-                                                        <label for="jenis">Jenis</label>
-                                                            <!--input type="text" name="id_jenis" class="form-control" id="id_jenis" value="<?= $tool['id_jenis'];?>"-->
-                                                        <!--select name="id_jenis" id="id_jenis" class="form-control">
-                                                            <?php 
-                                                            foreach($jenis as $row){ 
-                                                                echo '<option value="'.$row['id_jenis'].'">'
-                                                                .$row['desc_'].'</option>';
-                                                            }
-                                                            ?>
-                                                        </select-->
-                                                        <select class="form-control" name="id_jenis">
-                                                            <?php foreach($jenis as $row):?>
-                                                                <option value="<?= $row['id_jenis']?>"
-                                                                    <?php if ($row['id_jenis'] == 1/* Tenda */) : ?> 
-                                                                    selected<?php endif; ?>
-                                                                >
-                                                                    <?= $row['desc_']?>
-                                                                </option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                        <small class="form-text text-danger"><?= form_error('jenis'); ?></small>
+                                                <div class="form-group">
+                                                    <label for="jenis">Jenis</label>
+                                                    <select class="form-control" name="id_jenis">
+                                                        <?php foreach($jenis as $row):?>
+                                                            <option value="<?= $row['id_jenis']?>"
+                                                                <?php if ($row['id_jenis'] == $tool['id_jenis']/*1 Tenda */) : ?> 
+                                                                selected<?php endif; ?>
+                                                            >
+                                                                <?= $row['desc_']?>
+                                                            </option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                    <small class="form-text text-danger"><?= form_error('id_jenis'); ?></small>
                                                     </div>
                                                 </div>
 
@@ -100,14 +89,16 @@
                                                 <div class="col-sm">
                                                     <div class="form-group">
                                                     <label for="id_cap">Kapasitas</label>
-                                                        <input type="text" name="id_cap" class="form-control" id="id_cap" value="<?= $tool['id_cap'];?>">
-                                                        <!--select name="id_cap" id="id_cap" class="form-control">
-                                                            <?php 
-                                                            foreach($cap as $row){ 
-                                                                echo '<option value="'.$row['id_cap'].'">'.$row['cap'].'</option>';
-                                                            }
-                                                            ?>
-                                                        </select-->
+                                                        <select class="form-control" name="id_cap">
+                                                            <?php foreach($cap as $row):?>
+                                                                <option value="<?= $row['id_cap']?>"
+                                                                    <?php if ($row['id_cap'] == $tool['id_cap']) : ?> 
+                                                                    selected<?php endif; ?>
+                                                                >
+                                                                    <?= $row['cap']?>
+                                                                </option>
+                                                            <?php endforeach; ?>
+                                                        </select>
                                                         <small class="form-text text-danger"><?= form_error('id_cap'); ?></small>
                                                     </div>
                                                 </div>

@@ -5,8 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Tools_model extends CI_Model {
 
     public function getJenis(){
-            $query = $this->db->query('SELECT id_jenis, desc_ FROM jenis');
-            return $query->result_array();
+        $query = $this->db->query('SELECT id_jenis, desc_ FROM jenis');
+        return $query->result_array();
     }
 
     public function getCap(){

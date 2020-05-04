@@ -67,10 +67,7 @@ class Tenda extends CI_Controller{
         $kondisi = array('id_tool' => $id_tool );
         
         $data['tool'] = $this->Tenda_model->get_by_id($kondisi);
-        $data['jenis'] = $this->Tools_model->getJenis();
-        $data['capct'] = $this->Tools_model->getCap();
-        $data['ca'] = ['1','2','4','6','8'];
-
+        
         $this->form_validation->set_rules('nama', 'Nama Tenda', 'required');
         $this->form_validation->set_rules('merk', 'Brand', 'required');
         //$this->form_validation->set_rules('gambar', 'Gambar', 'required');
