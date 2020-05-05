@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <title>tenda Hijrah Adventure</title>
+    <title>Carrier Hijrah Adventure</title>
         <?php $this->load->view("server/templates/header.php") ?>
     </head>
 
@@ -40,10 +40,10 @@
                                         <div class="row mt-3">
                                             <div class="col-md-6">
                                                 <a data-toggle="modal" data-target="#tambah_modal" class="btn btn-primary text-white">
-                                                Tambah Data Tenda
+                                                Tambah Data tagihan
                                                 </a>
                                                 <!-- Modal Popup untuk Tambah-->
-                                                <?php $this->load->view("server/tools/tenda/tambah.php") ?>
+                                                <?php $this->load->view("server/tools/carrier/tambah.php") ?>
                                             </div>
                                         </div>
                                             <form action="" method="post">
@@ -88,16 +88,16 @@
                                                         <button class="btn"><i class="far fa-list-alt fa-2x" style="color:green;"></i>
                                                         </button>
                                                         <!-- Modal Popup untuk Detail-->
-                                                        <?php $this->load->view("server/tools/tenda/detail.php") ?>
+                                                        <?php $this->load->view("server/tools/carrier/detail.php") ?>
                                                     </a>
                                                     <a data-toggle="modal" data-target="#edit_modal<?= $tool['id_tool']; ?>">
                                                         <button class="btn"><i class="far fa-edit fa-2x" style="color:blue;"></i>
                                                         </button>
                                                     </a>
                                                         <!-- Modal Popup untuk Edit-->
-                                                        <?php $this->load->view("server/tools/tenda/ubah.php") ?>
+                                                        <?php $this->load->view("server/tools/carrier/ubah.php") ?>
                                                     
-                                                    <a href="<?= base_url(); ?>server/tools/tenda/hapus/<?= $tool['id_tool']; ?>">
+                                                    <a href="<?= base_url(); ?>server/tools/carrier/hapus/<?= $tool['id_tool']; ?>">
                                                         <button class="btn"><i class="far fa-trash-alt fa-2x" style="color:red;"></i>
                                                         </button>
                                                     </a>

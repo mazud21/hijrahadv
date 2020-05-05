@@ -28,11 +28,11 @@
                                 <div class="row mt-3">
                                     <div class="card">
                                         <div class="card-header">
-                                                Form Edit Data Tenda
+                                                Form Edit Data Carrier
                                         </div>
 
                                         <div class="card-body">
-                                            <?php echo form_open("server/tools/tenda/updatedata", array('enctype'=>'multipart/form-data')); ?>
+                                            <?php echo form_open("server/tools/carrier/updatedata", array('enctype'=>'multipart/form-data')); ?>
                                             <form action="" method="post">
                                                 
                                                 <!-- ID -->
@@ -52,7 +52,7 @@
                                             <div class="row">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="nama">Nama Tenda</label>
+                                                        <label for="nama">Nama Carrier</label>
                                                         <input type="text" name="nama" class="form-control" id="nama" value="<?= $tool['nama'];?>">
                                                         <small class="form-text text-danger"><?= form_error('nama'); ?></small>
                                                     </div>
@@ -64,8 +64,13 @@
                                                         <small class="form-text text-danger"><?= form_error('merk'); ?></small>
                                                     </div>
                                                 </div>
-                                                    
-                                                    
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="ket">Keterangan</label>
+                                                        <textarea name="ket" id="ket" cols="30" rows="10"><?= $tool['merk'];?></textarea>
+                                                        <small class="form-text text-danger"><?= form_error('ket'); ?></small>
+                                                    </div>
+                                                </div>    
                                             </div>
 
                                             <div class="col-sm">
@@ -74,7 +79,7 @@
                                                     <select class="form-control" name="id_jenis">
                                                         <?php foreach($jenis as $row):?>
                                                             <option value="<?= $row['id_jenis']?>"
-                                                                <?php if ($row['id_jenis'] == $tool['id_jenis']/*1 Tenda */) : ?> 
+                                                                <?php if ($row['id_jenis'] == $tool['id_jenis']) : ?> 
                                                                 selected<?php endif; ?>
                                                             >
                                                                 <?= $row['desc_']?>
@@ -88,22 +93,6 @@
                                             <div class="row">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                    <label for="id_cap">Kapasitas</label>
-                                                        <select class="form-control" name="id_cap">
-                                                            <?php foreach($cap as $row):?>
-                                                                <option value="<?= $row['id_cap']?>"
-                                                                    <?php if ($row['id_cap'] == $tool['id_cap']) : ?> 
-                                                                    selected<?php endif; ?>
-                                                                >
-                                                                    <?= $row['cap']?>
-                                                                </option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                        <small class="form-text text-danger"><?= form_error('id_cap'); ?></small>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm">
-                                                    <div class="form-group">
                                                         <label for="color">Color</label>
                                                         <input type="text" name="color" class="form-control" id="color" value="<?= $tool['color'];?>">
                                                         <small class="form-text text-danger"><?= form_error('color'); ?></small>
@@ -111,36 +100,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-sm">
-                                                    <div class="form-group">
-                                                        <label for="flysheet">Flysheet</label>
-                                                        <input type="text" name="flysheet" class="form-control" id="flysheet" value="<?= $tool['flysheet'];?>">
-                                                        <small class="form-text text-danger"><?= form_error('flysheet'); ?></small>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm">
-                                                    <div class="form-group">
-                                                        <label for="inner_">Inner</label>
-                                                        <input type="text" name="inner_" class="form-control" id="inner_" value="<?= $tool['inner_'];?>">
-                                                        <small class="form-text text-danger"><?= form_error('inner_'); ?></small>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm">
-                                                    <div class="form-group">
-                                                        <label for="floor">Floor</label>
-                                                        <input type="text" name="floor" class="form-control" id="floor" value="<?= $tool['floor'];?>">
-                                                        <small class="form-text text-danger"><?= form_error('floor'); ?></small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm">
-                                                    <div class="form-group">
-                                                        <label for="poles">Poles</label>
-                                                        <input type="text" name="poles" class="form-control" id="poles" value="<?= $tool['poles'];?>">
-                                                        <small class="form-text text-danger"><?= form_error('poles'); ?></small>
-                                                    </div>
-                                                </div>
+                                                
                                                 <div class="col-sm">
                                                     <div class="form-group">
                                                         <label for="size">Dimensi</label>
@@ -153,6 +113,29 @@
                                                         <label for="weight">Berat</label>
                                                         <input type="number" name="weight" class="form-control" id="weight" value="<?= $tool['weight'];?>">
                                                         <small class="form-text text-danger"><?= form_error('weight'); ?></small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="volume">Volume</label>
+                                                        <input type="number" name="volume" class="form-control" id="volume" value="<?= $tool['volume'];?>">
+                                                        <small class="form-text text-danger"><?= form_error('volume'); ?></small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                    <label for="id_bool">Rain Cover</label>
+                                                        <select class="form-control" name="id_bool">
+                                                            <?php foreach($bool as $row):?>
+                                                                <option value="<?= $row['id_bool']?>"
+                                                                    <?php if ($row['id_bool'] == $tool['id_bool']) : ?> 
+                                                                    selected<?php endif; ?>
+                                                                >
+                                                                    <?= $row['pilihan']?>
+                                                                </option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                        <small class="form-text text-danger"><?= form_error('id_bool'); ?></small>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">

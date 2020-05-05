@@ -13,6 +13,11 @@ class Tools_model extends CI_Model {
         $query = $this->db->query('SELECT id_cap, cap FROM capacity');
         return $query->result_array();
     }
+
+    public function getBool(){
+        $query = $this->db->query('SELECT id_bool, pilihan FROM boolean');
+        return $query->result_array();
+    }
 }
 
 /* End of file Tools_model.php */
