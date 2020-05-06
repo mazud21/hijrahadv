@@ -67,7 +67,7 @@
                                                 <div class="col-sm">
                                                     <div class="form-group">
                                                         <label for="ket">Keterangan</label>
-                                                        <textarea name="ket" id="ket" cols="30" rows="10"><?= $tool['merk'];?></textarea>
+                                                        <textarea name="ket" id="ket" cols="30" rows="10"><?= $tool['ket'];?></textarea>
                                                         <small class="form-text text-danger"><?= form_error('ket'); ?></small>
                                                     </div>
                                                 </div>    

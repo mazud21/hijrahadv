@@ -68,12 +68,8 @@
                                             <div class="col-sm">
                                                 <div class="form-group">
                                                     <label for="jenis">Jenis</label>
-                                                    <select name="id_jenis" id="id_jenis" class="form-control">
-                                                        <?php 
-                                                        foreach($jenis as $row){ 
-                                                            echo '<option value="'.$row['id_jenis'].'">'.$row['desc_'].'</option>';
-                                                        }
-                                                        ?>
+                                                    <select name="id_jenis" id="id_jenis" class="form-control" readonly>
+                                                        <option value="2">Carrier</option>
                                                     </select>
                                                     <small class="form-text text-danger"><?= form_error('jenis'); ?></small>
                                                 </div>
