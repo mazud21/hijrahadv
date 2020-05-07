@@ -47,8 +47,12 @@
                                                         </div>
                                                     
                                                         <div class="form-group">
-                                                            <label for=""><h6 class="card-subtitle text-muted">Dimensi</h6></label><br>
-                                                            <?= $tool['size']; ?>
+                                                            <label for=""><h6 class="card-subtitle text-muted">Bahan Dalam</h6></label><br>
+                                                            <?= $tool['inner_']; ?>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for=""><h6 class="card-subtitle text-muted">Bahan Luar</h6></label><br>
+                                                            <?= $tool['outer_']; ?>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for=""><h6 class="card-subtitle text-muted">Stock</h6></label><br>

@@ -40,7 +40,8 @@ class Sb_model extends CI_model {
                 $merk       = $this->input->post('merk'),
                 $ket        = $this->input->post('ket'),
                 $color      = $this->input->post('color'),
-                $size       = $this->input->post('size'),
+                $inner_       = $this->input->post('inner_'),
+                $outer_       = $this->input->post('outer_'),
                 $stock_     = $this->input->post('stock_'),
                 $biaya      = $this->input->post('biaya'),
 
@@ -62,7 +63,8 @@ class Sb_model extends CI_model {
             'gambar'     => $upload['file']['file_name'],
             'ket'        => $this->input->post('ket'),
             'color'      => $this->input->post('color'),
-            'size'       => $this->input->post('size'),
+            'inner_'       => $this->input->post('inner_'),
+            'outer_'       => $this->input->post('outer_'),
             'stock_'     => $this->input->post('stock_'),
             'biaya'      => $this->input->post('biaya'),
 

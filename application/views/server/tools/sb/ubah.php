@@ -100,15 +100,21 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="size">Dimensi</label>
-                                                        <input type="text" name="size" class="form-control" id="size" value="<?= $tool['size'];?>">
-                                                        <small class="form-text text-danger"><?= form_error('size'); ?></small>
-                                                    </div>
+                                                        <label for="inner_">Bahan Dalam</label>
+                                                        <input type="text" name="inner_" class="form-control" id="inner_" value="<?= $tool['inner_'];?>">
+                                                        <small class="form-text text-danger"><?= form_error('inner_'); ?></small>
                                                     </div>
                                                 </div>
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="outer_">Bahan Dalam</label>
+                                                        <input type="text" name="outer_" class="form-control" id="outer_" value="<?= $tool['outer_'];?>">
+                                                        <small class="form-text text-danger"><?= form_error('outer_'); ?></small>
+                                                    </div>
+                                                </div>
+                                            </div>
                                                 <div class="form-group">
                                                     <label for="stock_">Stock</label>
                                                     <input type="number" min="0" name="stock_" class="form-control" id="stock_" value="<?= $tool['stock_'];?>">

@@ -6,7 +6,7 @@
             var reader = new FileReader();
             reader.onload = function(){
                 var dataURL = reader.result;
-                var output = document.getElementById('gambar');
+                var output = document.getElementById('g');
                 output.src = dataURL;
             };
             reader.readAsDataURL(input.files[0]);
@@ -33,7 +33,7 @@
                                             <div class="col-sm centered">
                                                 <div class="form-group">                            
                                                     <label for="gambar">Gambar</label>
-                                                    <img class="rounded mx-auto d-block" id='gambar' name='gambar' src="https://img.icons8.com/material/96/000000/image.png" width="300"/>
+                                                    <img class="rounded mx-auto d-block" id='g' name='gambar' src="https://img.icons8.com/material/96/000000/image.png" width="300"/>
                                                     <input type="file" name="gambar" class="form-control-file" id="gambar" onchange='readURL(event)'>
                                                     <small class="form-text text-danger"><?= form_error('gambar'); ?></small>
                                                 </div>
@@ -82,9 +82,16 @@
                                         </div>
                                             <div class="col-sm">
                                                 <div class="form-group">
-                                                    <label for="size">Dimensi</label>
-                                                    <input type="text" name="size" class="form-control" id="size" placeholder="-" value="coba">
-                                                    <small class="form-text text-danger"><?= form_error('size'); ?></small>
+                                                    <label for="inner_">Bahan Dalam</label>
+                                                    <input type="text" name="inner_" class="form-control" id="inner_" placeholder="-" value="coba">
+                                                    <small class="form-text text-danger"><?= form_error('inner_'); ?></small>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="outer_">Bahan Luar</label>
+                                                    <input type="text" name="outer_" class="form-control" id="outer_" placeholder="-" value="coba">
+                                                    <small class="form-text text-danger"><?= form_error('outer_'); ?></small>
                                                 </div>
                                             </div>
                                             <div class="col-sm">

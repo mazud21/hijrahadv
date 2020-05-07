@@ -31,7 +31,8 @@ class Sb extends CI_Controller{
         //$this->form_validation->set_rules('gambar', 'Gambar', 'required');
         $this->form_validation->set_rules('ket', 'Deskripsi', 'required');
         $this->form_validation->set_rules('color', 'Warna', 'required');
-        $this->form_validation->set_rules('size', 'Dimensi', 'required');
+        $this->form_validation->set_rules('inner_', 'Bahan Dalam', 'required');
+        $this->form_validation->set_rules('outer_', 'Bahan Luar', 'required');
         
         $this->form_validation->set_rules('stock_', 'Stock', 'required');
         $this->form_validation->set_rules('biaya', 'Biaya Sewa', 'required');
@@ -66,7 +67,8 @@ class Sb extends CI_Controller{
         //$this->form_validation->set_rules('gambar', 'Gambar', 'required');
         $this->form_validation->set_rules('ket', 'Deskripsi', 'required');
         $this->form_validation->set_rules('color', 'Warna', 'required');
-        $this->form_validation->set_rules('size', 'Dimensi', 'required');
+        $this->form_validation->set_rules('inner_', 'Bahan Dalam', 'required');
+        $this->form_validation->set_rules('outer_', 'Bahan Luar', 'required');
         
         $this->form_validation->set_rules('stock_', 'Stock', 'required');
         $this->form_validation->set_rules('biaya', 'Biaya Sewa', 'required');
@@ -87,7 +89,8 @@ class Sb extends CI_Controller{
         $merk       = $this->input->post('merk');
         $ket        = $this->input->post('ket');
         $color      = $this->input->post('color');
-        $size       = $this->input->post('size');
+        $inner_       = $this->input->post('inner_');
+        $outer_       = $this->input->post('outer_');
         $stock_      = $this->input->post('stock_');
         $biaya      = $this->input->post('biaya');
         
@@ -113,7 +116,8 @@ class Sb extends CI_Controller{
                         'gambar'    => $gambar['file_name'],
                         'ket'       => $ket,
                         'color'     => $color,
-                        'size'      => $size,
+                        'inner_'      => $inner_,
+                        'outer_'      => $outer_,
                         'stock_'    => $stock_,
                         'biaya'     => $biaya,
                         'id_jenis'  => $id_jenis,
@@ -135,7 +139,8 @@ class Sb extends CI_Controller{
                 'merk'      => $merk,
                 'ket'       => $ket,
                 'color'     => $color,
-                'size'      => $size,
+                'inner_'      => $inner_,
+                'outer_'      => $outer_,
                 'stock_'    => $stock_,
                 'biaya'     => $biaya,
                 'id_jenis'  => $id_jenis,
