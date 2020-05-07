@@ -58,6 +58,7 @@
                     </a>
                 </div>
                 <div class="card text-white bg-info border border-dark m-1">
+                <a class="text-white" href="<?= base_url(); ?>server/tools/matras">
                     <img class="card-img-top" src="<?= base_url(); ?>/images/admin/matras.jpg" alt="Card image cap">
                     <div class="card-body">
                     <h7 class="card-title">Matras</h7>
