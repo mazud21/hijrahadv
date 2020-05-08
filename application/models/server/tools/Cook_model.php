@@ -1,11 +1,11 @@
 <?php 
 
-class Gas_model extends CI_model {
-    public function getAllGas(){
+class Cook_model extends CI_model {
+    public function getAllCook(){
         $this->db->select('*');
         $this->db->from('tools t');
         $this->db->join('jenis j','j.id_jenis=t.id_jenis');
-        $this->db->where('j.desc_','Tabung Gas Mini');
+        $this->db->where('j.desc_','Nesting Cook Set');
         $this->db->order_by('id_tool','ASC');
         $query = $this->db->get();
         return $query->result_array();
@@ -39,7 +39,7 @@ class Gas_model extends CI_model {
                 $nama       = $this->input->post('nama'),
                 $merk       = $this->input->post('merk'),
                 $ket        = $this->input->post('ket'),
-                $volume      = $this->input->post('volume'),
+                $outer_      = $this->input->post('outer_'),
                 $stock_     = $this->input->post('stock_'),
                 $biaya      = $this->input->post('biaya'),
 
@@ -54,13 +54,13 @@ class Gas_model extends CI_model {
 
     }
 
-    public function tambahDataGas($upload){
+    public function tambahDataCook($upload){
         $data = array(
             'nama'       => $this->input->post('nama'),
             'merk'       => $this->input->post('merk'),
             'gambar'     => $upload['file']['file_name'],
             'ket'        => $this->input->post('ket'),
-            'volume'      => $this->input->post('volume'),
+            'outer_'      => $this->input->post('outer_'),
             'stock_'     => $this->input->post('stock_'),
             'biaya'      => $this->input->post('biaya'),
 
@@ -83,7 +83,7 @@ class Gas_model extends CI_model {
     return TRUE;
     }
 
-    public function hapusDataGas($id_tool){
+    public function hapusDataCook($id_tool){
         // $this->db->where('id', $id);
         $this->db->delete('tools', ['id_tool' => $id_tool]);
     }
@@ -92,7 +92,7 @@ class Gas_model extends CI_model {
         return $this->db->get_where('tools', ['id_tool' => $id_tool])->row_array();
     }
 
-    public function cariDataGas(){
+    public function cariDataCook(){
         $keyword = $this->input->post('keyword', true);
         $this->db->like('nama', $keyword);
         $this->db->or_like('merk', $keyword);
