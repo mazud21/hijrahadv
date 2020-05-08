@@ -76,11 +76,12 @@
                     </a>
                 </div>
                 <div class="card text-white bg-info border border-dark m-1">
+                <a class="text-white" href="<?= base_url(); ?>server/tools/gas">
                     <img class="card-img-top" src="<?= base_url(); ?>/images/admin/gas.jpg" alt="Card image cap">
                     <div class="card-body">
                     <h7 class="card-title">Tabung Gas Mini</h7>
-                    
                     </div>
+                    </a>
                 </div>
                 <div class="card text-white bg-info border border-dark m-1">
                     <img class="card-img-top" src="<?= base_url(); ?>/images/admin/nesting.jpg" alt="Card image cap">
