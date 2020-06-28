@@ -1,12 +1,12 @@
 <?php 
 
-class Blog_model extends CI_model {
-    public function getAllBlog(){
-        return $this->db->get('blog')->result_array();
+class Journey_model extends CI_model {
+    public function getAllJourney(){
+        return $this->db->get('journey')->result_array();
     }
 
-    public function getAllBlogSide(){
-        return $this->db->get('blog')->result_array();
+    public function getAllJourneySide(){
+        return $this->db->get('journey')->result_array();
     }
 
     public function upload(){
@@ -41,14 +41,14 @@ class Blog_model extends CI_model {
                 'penulis' => $this->input->post('penulis', true)
             );
     
-            $this->db->insert('blog', $data);
+            $this->db->insert('journey', $data);
             
-            redirect('server/blog');
+            redirect('server/journey');
         }
 
     }
 
-    public function tambahDataBlog($upload){
+    public function tambahDataJourney($upload){
         $data = array(
             'judul' => $this->input->post('judul', true),
             'isi' => $this->input->post('isi', true),
@@ -57,34 +57,34 @@ class Blog_model extends CI_model {
             'penulis' => $this->input->post('penulis', true)
         );
 
-        $this->db->insert('blog', $data);
+        $this->db->insert('journey', $data);
     }
 
     public function get_by_id($kondisi){
-        $this->db->from('blog');
+        $this->db->from('journey');
         $this->db->where($kondisi);
         $query = $this->db->get();
     return $query->row();
     }
 
     public function update($data,$kondisi){
-        $this->db->update('blog',$data,$kondisi);
+        $this->db->update('journey',$data,$kondisi);
     return TRUE;
     }
 
-    public function hapusDataBlog($id_blog){
+    public function hapusDataJourney($id_journey){
         // $this->db->where('id', $id);
-        $this->db->delete('blog', ['id_blog' => $id_blog]);
+        $this->db->delete('journey', ['id_journey' => $id_journey]);
     }
 
-    public function getBlogById($id_blog){
-        return $this->db->get_where('blog', ['id_blog' => $id_blog])->row_array();
+    public function getJourneyById($id_journey){
+        return $this->db->get_where('journey', ['id_journey' => $id_journey])->row_array();
     }
 
-    public function cariDataBlog(){
+    public function cariDataJourney(){
         $keyword = $this->input->post('keyword', true);
         $this->db->like('judul', $keyword);
         $this->db->or_like('isi', $keyword);
-        return $this->db->get('blog')->result_array();
+        return $this->db->get('journey')->result_array();
     }
 }

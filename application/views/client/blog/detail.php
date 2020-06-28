@@ -41,7 +41,7 @@
                             <?= $blog['isi']; ?>
                     </h3>
                     <p class="post-meta">Posted by
-                        <a href="#">Start Bootstrap</a>
+                        <a href="#"><?= $blog['penulis']; ?></a>
                         on <?= $blog['tanggal_create']; ?> updated on <?= $blog['tanggal_update']; ?></p>
               </div>
                 <hr>

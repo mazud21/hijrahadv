@@ -1,29 +1,30 @@
 #myFooter {
-    background-color: #00657b;
-    color: white;
+    background-color: white;
+    color: #663234;
     padding-top: 50px;
+    border-top: 2px solid #66323481;
     font-family: 'Quicksand', Arial;
 }
 
 #myFooter .footer-copyright {
     
-    padding: 20px;
+    padding: 5px;
     text-align: center;
     font-weight: 700;
 }
 
 #myFooter .row {
-    margin-bottom: 60px;
+    margin-bottom: 5px;
 }
 
 #myFooter .navbar-brand {
     margin-top: 45px;
-    height: 65px;
+    height: 20px;
 }
 
 #myFooter .footer-copyright p {
-    margin: 10px;
-    color: #fff;
+
+    color: #663234;
     font-weight: 500;
 }
 
@@ -35,7 +36,7 @@
 
 #myFooter h5 {
     font-size: 18px;
-    color: white;
+    color: #663234;
     font-weight: bold;
     margin-top: 30px;
 }
@@ -43,23 +44,22 @@
 #myFooter h2 a{
     font-size: 50px;
     text-align: center;
-    color: #fff;
+    color: #663234;
 }
 
 #myFooter a {
-    color: #fff;
+    color: #663234;
     text-decoration: none;
 }
 
 #myFooter a:hover,
 #myFooter a:focus {
     text-decoration: none;
-    color: #00eefff3;
+    color: #fd0002;
 }
 
 #myFooter .social-networks {
     text-align: center;
-    padding-bottom: 16px;
     width: 100%;
     position: relative;
 }
@@ -68,7 +68,7 @@
 
 #myFooter .social-networks a {
     font-size: 32px;
-    color: #f9f9f9;
+    color: #663234;
     padding: 10px;
     transition: 0.2s;
 }

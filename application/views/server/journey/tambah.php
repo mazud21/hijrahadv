@@ -22,7 +22,7 @@ function tgl_indo($tanggal){
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <title>Blog Hijrah Adventure</title>
+    <title>Journey Hijrah Adventure</title>
         <?php $this->load->view("server/templates/header.php") ?>
         <script type="text/javascript" src="<?= base_url(); ?>assets/ckeditor/ckeditor.js"></script>
     </head>
@@ -60,11 +60,11 @@ function tgl_indo($tanggal){
     <div class="row mt-3">
             <div class="card">
                 <div class="card-header">
-                    Form Tambah Data Blog
+                    Form Tambah Data Journey
                 </div>
 
                 <div class="card-body">
-                <?php echo form_open("server/blog/tambah", array('enctype'=>'multipart/form-data')); ?>
+                <?php echo form_open("server/journey/tambah", array('enctype'=>'multipart/form-data')); ?>
                 <form action="" method="post">
                     
                     <div class="form-group">

@@ -43,8 +43,8 @@
                       <h3 class="post-subtitle post">
                               <?= substr($blg['isi'],0,299); ?>...
                       </h3>
-                      <p class="post-meta">Posted by
-                          <a href="#">Start Bootstrap</a>
+                      <p class="post-meta">Posted by 
+                          <?= $blg['penulis']; ?>
                           on <?= $blg['tanggal_create']; ?> updated on <?= $blg['tanggal_update']; ?></p>
                 </div>
                   <hr>

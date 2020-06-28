@@ -23,7 +23,15 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Contact</h2>
+        <h3>About <span>Us</span></h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?
+
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!
+
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!
+
+        </p>
+
           <h3>Contact <span>Us</span></h3>
           <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
         </div>
@@ -45,13 +53,13 @@
               <div class="email">
               <i class="fas fa-envelope"></i>
                 <h4>Email:</h4>
-                <p>hijrahadv@gmail.com</p>
+                <p>journeysiaofficial@gmail.com</p>
               </div>
 
               <div class="phone">
               <i class="fas fa-phone-alt"></i>
                 <h4>Call:</h4>
-                <p>+62 895 5488 345</p>
+                <p>+62 813 3435 8243</p>
               </div>
 
             </div>

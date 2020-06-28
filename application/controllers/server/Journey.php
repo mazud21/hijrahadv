@@ -1,10 +1,10 @@
 <?php
 
-class Blog extends CI_Controller{
+class Journey extends CI_Controller{
 
     public function __construct(){
         parent::__construct();
-        $this->load->model('server/Blog_model');
+        $this->load->model('server/Journey_model');
         $this->load->library('form_validation');
         $this->load->library('session');
 
@@ -13,34 +13,34 @@ class Blog extends CI_Controller{
     }
 
     public function index(){
-        $data['judul'] = 'Daftar Blog';
-        $data['blog'] = $this->Blog_model->getAllBlog();
+        $data['judul'] = 'Daftar Journey';
+        $data['journey'] = $this->Journey_model->getAllJourney();
         
-        $this->load->view('server/blog/index', $data);
+        $this->load->view('server/journey/index', $data);
     }
 
     public function tambah(){
         $data = array();
-        $data['judul'] = 'Tambah Blog';
+        $data['judul'] = 'Tambah Journey';
 
-        $this->form_validation->set_rules('judul', 'Judul Blog', 'required');
+        $this->form_validation->set_rules('judul', 'Judul Journey', 'required');
         $this->form_validation->set_rules('isi', 'Konten', 'required');
         //$this->form_validation->set_rules('gambar', 'Gambar', 'required');
         $this->form_validation->set_rules('tanggal_create', 'Tanggal', 'required');
         $this->form_validation->set_rules('penulis', 'Penulis', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('server/blog/tambah',$data);
+            $this->load->view('server/journey/tambah',$data);
             
         }else if($this->input->post('tambah')){ 
 
-            $upload = $this->Blog_model->upload();
+            $upload = $this->Journey_model->upload();
 
             if($upload['result'] == "success"){
                 
-                $this->Blog_model->tambahDataBlog($upload);
+                $this->Journey_model->tambahDataJourney($upload);
                 
-                redirect('server/blog');
+                redirect('server/journey');
             }else{
                 $data['message'] = $upload['error'];
             }
@@ -48,12 +48,12 @@ class Blog extends CI_Controller{
         
     }
 
-    public function edit($id_blog){
-        $kondisi = array('id_blog' => $id_blog );
+    public function edit($id_journey){
+        $kondisi = array('id_journey' => $id_journey );
 
-        $data['blg'] = $this->Blog_model->get_by_id($kondisi);
+        $data['blg'] = $this->Journey_model->get_by_id($kondisi);
         
-        $this->form_validation->set_rules('judul', 'Judul Blog', 'required');
+        $this->form_validation->set_rules('judul', 'Judul Journey', 'required');
         $this->form_validation->set_rules('isi', 'Konten', 'required');
         //$this->form_validation->set_rules('gambar', 'Gambar', 'required');
         $this->form_validation->set_rules('tanggal_create', 'Tanggal', 'required');
@@ -61,7 +61,7 @@ class Blog extends CI_Controller{
         $this->form_validation->set_rules('penulis', 'Penulis', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('server/blog/ubah',$data);
+            $this->load->view('server/journey/ubah',$data);
         }
     
     }
@@ -70,7 +70,7 @@ class Blog extends CI_Controller{
 
         $this->load->library('upload'); 
 
-        $id_blog        = $this->input->post('id_blog');
+        $id_journey        = $this->input->post('id_journey');
         $judul          = $this->input->post('judul');
         $isi            = $this->input->post('isi');
         $tanggal_create = $this->input->post('tanggal_create');
@@ -79,7 +79,7 @@ class Blog extends CI_Controller{
 
         $path = './images/';
 
-        $kondisi = array('id_blog' => $id_blog );
+        $kondisi = array('id_journey' => $id_journey );
 
         $config['upload_path'] = './images/';
         $config['allowed_types'] = 'jpg|png|jpeg|gif';
@@ -102,11 +102,11 @@ class Blog extends CI_Controller{
                 // replace image
                 @unlink($path.$this->input->post('img_old'));
 
-                $this->Blog_model->update($data,$kondisi);
-                redirect('server/blog');
+                $this->Journey_model->update($data,$kondisi);
+                redirect('server/journey');
                 }else {
                 die("gagal update");
-                redirect('server/blog');
+                redirect('server/journey');
                 }
             }else {
             //no image update
@@ -118,20 +118,20 @@ class Blog extends CI_Controller{
                 'tanggal_update'    => $tanggal_update,
                 'penulis'           => $penulis,
             );
-            $this->Blog_model->update($data,$kondisi);
-            redirect('server/blog');
+            $this->Journey_model->update($data,$kondisi);
+            redirect('server/journey');
         }
     }
 
-    public function hapus($id_blog){
-        $this->Blog_model->hapusDataBlog($id_blog);
+    public function hapus($id_journey){
+        $this->Journey_model->hapusDataJourney($id_journey);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('server/blog');
+        redirect('server/journey');
     }
 
-    public function detail($id_blog){
-        $data['judul'] = 'Detail Data Blog';
-        $data['blog'] = $this->Blog_model->getBlogById($id_blog);
-        $this->load->view('server/blog/detail', $data);
+    public function detail($id_journey){
+        $data['judul'] = 'Detail Data Journey';
+        $data['Journey'] = $this->Journey_model->getJourneyById($id_journey);
+        $this->load->view('server/journey/detail', $data);
     }
 }
