@@ -419,13 +419,13 @@ HOME BANNER
   width: 100%;
   height: 100vh;
   background: url("https://www.itl.cat/pngfile/big/0-194_free-desktop-wallpaper-hd-download-pixelstalk-banff-wallpaper.jpg") top center;
-  background-size: cover;
+  
   position: relative;
 }
 
 #hero:before {
   content: "";
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0.671);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -715,3 +715,10 @@ START FLOAT BUTTON TO TOP PAGE
 /*
 END FLOAT BUTTON TO TOP PAGE
 */
+
+.center-cropped {
+  width: 100px;
+  height: 100px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
