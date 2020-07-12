@@ -19,12 +19,14 @@
 
   <!-- START MAIN CONTENT -->
   
-  <div class="container-fluid">
+  <div class="container-fluid mt-5">
     <div class="card-deck mt-5">
+    <a href="<?= base_url(); ?>jogja/trip/adv/Adv">
     <div class="card">
       <img class="card-img-top" src="https://wallpaperplay.com/walls/full/7/8/1/237062.jpg" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Adventure</h5>
+        </a>
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
       </div>
